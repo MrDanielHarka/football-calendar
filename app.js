@@ -1,6 +1,5 @@
 import sportDataJSON from './sportData.json' assert { type: 'json' };
 let sportData = sportDataJSON.data;
-console.log(sportData);
 
 const showEvents = () => {
   let events = '',
@@ -38,12 +37,37 @@ const showHomePage = () => {
   main.innerHTML += `
 <p>This is a simple football calendar of the AFC Champions League.</p>
 
+    <label for="events">Event status:</label>
+    <select name="events" id="events">
+      <option value="all">All</option>
+      <option value="scheduled">Scheduled</option>
+      <option value="played">Played</option>
+    </select>
+
     <p style="color: green; font-weight: bold">Add new event</p>
 
     <div class="events"></div>
 `;
 
+  const select = document.getElementsByTagName('select')[0];
+
   showEvents();
+
+  select.addEventListener('change', function () {
+    const events = document.querySelectorAll('.event');
+    const scheduledEvents = document.querySelectorAll('.scheduled');
+    const playedEvents = document.querySelectorAll('.played');
+
+    if (select.value === 'all') {
+      events.forEach(event => (event.style.display = 'block'));
+    } else if (select.value === 'scheduled') {
+      scheduledEvents.forEach(event => (event.style.display = 'block'));
+      playedEvents.forEach(event => (event.style.display = 'none'));
+    } else {
+      playedEvents.forEach(event => (event.style.display = 'block'));
+      scheduledEvents.forEach(event => (event.style.display = 'none'));
+    }
+  });
 
   console.log('Home.');
 };
