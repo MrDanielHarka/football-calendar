@@ -8,115 +8,119 @@
     <link rel="stylesheet" href="app.css" />
   </head>
   <body>
-    <nav>
-      <h1>
-        [SHA] vs [NAS]
-        <br />
-        match details
-      </h1>
-      <p>
-        This page is about the [scheduled/played] game between the following
-        teams:
-      </p>
+    <div>
+      <header class="background rounded">
+        <h1>
+          [SHA] vs [NAS]
+          <br />
+          match details
+        </h1>
+        <p>
+          This page is about the [scheduled/played] game between the following
+          teams:
+        </p>
 
-      <p>
-        [Al Shabab]
-        <br />
-        vs
-        <br />
-        [Nasaf]
-      </p>
+        <p>
+          [Al Shabab]
+          <br />
+          vs
+          <br />
+          [Nasaf]
+        </p>
 
-      <p>
-        The match is [scheduled/played] on [2022-02-03] at [00:00:00]. [if
-        stadium: Place: [stadium].].
-      </p>
-
+        <p>
+          The match is [scheduled/played] on [2022-02-03] at [00:00:00]. [if
+          stadium: Place: [stadium].].
+        </p>
+      </header>
       <!-- These will be flex items. -->
-      <div>
-        <h2>Home team info</h2>
-        <div class="flex-container">
-          <div>Name:</div>
-          <div>[Al Shabab]</div>
+      <main class="flex-container">
+        <div class="background rounded info-wrapper">
+          <h2>Home team info</h2>
+          <div class="flex-container flex-container--small">
+            <div>Name:</div>
+            <div>[Al Shabab]</div>
+          </div>
+          <div class="flex-container flex-container--small">
+            <div>Official name:</div>
+            <div>[Al Shabab FC]</div>
+          </div>
+          <div class="flex-container flex-container--small">
+            <div>Slug:</div>
+            <div>[al-shabab-fc]</div>
+          </div>
+          <div class="flex-container flex-container--small">
+            <div>Abbreviation:</div>
+            <div>[SHA]</div>
+          </div>
+          <div class="flex-container flex-container--small">
+            <div>Team country code:</div>
+            <div>[KSA]</div>
+          </div>
+          <div class="flex-container flex-container--small">
+            <div>Stage position:</div>
+            <div>[null === 'na' || 'XY']</div>
+          </div>
         </div>
-        <div class="flex-container">
-          <div>Official name:</div>
-          <div>[Al Shabab FC]</div>
+        <div class="background rounded info-wrapper">
+          <h2>Away team info</h2>
+          <div class="flex-container flex-container--small">
+            <div>Name:</div>
+            <div>[Nasaf]</div>
+          </div>
+          <div class="flex-container flex-container--small">
+            <div>Official name:</div>
+            <div>[FC Nasaf]</div>
+          </div>
+          <div class="flex-container flex-container--small">
+            <div>Slug:</div>
+            <div>[fc-nasaf-qarshi]</div>
+          </div>
+          <div class="flex-container flex-container--small">
+            <div>Abbreviation:</div>
+            <div>[NAS]</div>
+          </div>
+          <div class="flex-container flex-container--small">
+            <div>Team country code:</div>
+            <div>[UZB]</div>
+          </div>
+          <div class="flex-container flex-container--small">
+            <div>Stage position:</div>
+            <div>[null === 'na' || 'XY']</div>
+          </div>
         </div>
-        <div class="flex-container">
-          <div>Slug:</div>
-          <div>[al-shabab-fc]</div>
-        </div>
-        <div class="flex-container">
-          <div>Abbreviation:</div>
-          <div>[SHA]</div>
-        </div>
-        <div class="flex-container">
-          <div>Team country code:</div>
-          <div>[KSA]</div>
-        </div>
-        <div class="flex-container">
-          <div>Stage position:</div>
-          <div>[null === 'na' || 'XY']</div>
-        </div>
-      </div>
-      <div>
-        <h2>Away team info</h2>
-        <div class="flex-container">
-          <div>Name:</div>
-          <div>[Nasaf]</div>
-        </div>
-        <div class="flex-container">
-          <div>Official name:</div>
-          <div>[FC Nasaf]</div>
-        </div>
-        <div class="flex-container">
-          <div>Slug:</div>
-          <div>[fc-nasaf-qarshi]</div>
-        </div>
-        <div class="flex-container">
-          <div>Abbreviation:</div>
-          <div>[NAS]</div>
-        </div>
-        <div class="flex-container">
-          <div>Team country code:</div>
-          <div>[UZB]</div>
-        </div>
-        <div class="flex-container">
-          <div>Stage position:</div>
-          <div>[null === 'na' || 'XY']</div>
-        </div>
-      </div>
-      <div>
-        <h2>Game info</h2>
-        <div class="flex-container">
-          <div>Season:</div>
-          <div>[2022]</div>
-        </div>
-        <div class="flex-container">
-          <div>Stage:</div>
-          <div>[ROUND OF 16]</div>
-        </div>
-        <div class="flex-container">
-          <div>Ordering:</div>
-          <div>[4]</div>
-        </div>
-        <div class="flex-container">
-          <div>Goals scored by [SHA]:</div>
-          <div>[1]</div>
-        </div>
-        <div class="flex-container">
-          <div>Goals scored by [NAS]:</div>
-          <div>[2]</div>
-        </div>
-        <div class="flex-container">
-          <div>Winner:</div>
-          <div>[Nasaf]</div>
-        </div>
+        <div class="background rounded info-wrapper">
+          <h2>Game info</h2>
+          <div class="flex-container flex-container--small">
+            <div>Season:</div>
+            <div>[2022]</div>
+          </div>
+          <div class="flex-container flex-container--small">
+            <div>Stage:</div>
+            <div>[ROUND OF 16]</div>
+          </div>
+          <div class="flex-container flex-container--small">
+            <div>Ordering:</div>
+            <div>[4]</div>
+          </div>
+          <div class="flex-container flex-container--small">
+            <div>Goals scored by [SHA]:</div>
+            <div>[1]</div>
+          </div>
+          <div class="flex-container flex-container--small">
+            <div>Goals scored by [NAS]:</div>
+            <div>[2]</div>
+          </div>
+          <div class="flex-container flex-container--small">
+            <div>Winner:</div>
+            <div>[Nasaf]</div>
+          </div>
 
-        <p>[if message]Message:[]</p>
-      </div>
-      <h2>Summary</h2>
+          <p>[if message]Message:[]</p>
+        </div>
+      </main>
+      <aside class="background rounded">
+        <h2>Summary</h2>
       <p>
         The game is [scheduled/played] on [2022-02-03] at [00:00:00] between
         [the [Al Shabab FC] || an undecided ] (home) team and [the [FC Nasaf] ||
@@ -124,7 +128,7 @@
         [FINAL].tolowercase and the ordering is [7]. The place of the match is
         ["not decided yet" || [stadium]].
       </p>
-    </nav>
-    <main></main>
+    </div>
+      </aside>
   </body>
 </html>
