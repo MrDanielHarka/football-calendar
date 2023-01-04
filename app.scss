@@ -7,3 +7,10 @@ a {
   color: #000;
   font-weight: bold;
 }
+
+.flex-container {
+  margin: auto;
+  justify-content: space-between;
+  display: flex;
+  max-width: 250px;
+}

@@ -10,17 +10,17 @@ const showEvents = () => {
     eventId++;
     console.log(
       eventId,
-      `${event.homeTeam != null ? event.homeTeam.abbreviation : '???'} vs ${
-        event.awayTeam != null ? event.awayTeam.abbreviation : '???'
+      `${event.homeTeam != null ? event.homeTeam.abbreviation : 'N/A'} vs ${
+        event.awayTeam != null ? event.awayTeam.abbreviation : 'N/A'
       }`
     );
     events += `
     <div class="event ${event.status}">
       <a href="#${eventId}" >
           <span>${
-            event.homeTeam != null ? event.homeTeam.abbreviation : '???'
+            event.homeTeam != null ? event.homeTeam.abbreviation : 'N/A'
           } vs ${
-      event.awayTeam != null ? event.awayTeam.abbreviation : '???'
+      event.awayTeam != null ? event.awayTeam.abbreviation : 'N/A'
     }</span>
     <br>
           <span>Date: ${event.dateVenue}</span>
@@ -78,17 +78,19 @@ const showHomePage = () => {
   console.log('Home.');
 };
 
-const showAddPage = () => console.log('Add.');
-
-const showEventDetailsPage = eventId => {
+const showEventPage = eventId => {
   console.log(`Event details: ${eventId}`);
-  mainElement.innerHTML = `Event details: ${eventId}`;
+  mainElement.innerHTML = `
+  Event details: ${eventId}
+  `;
 };
+
+const showAddPage = () => console.log('Add.');
 
 const checkHash = () => {
   let hash = window.location.hash.substring(1);
   if (hash > 0 && hash <= sportData.length) {
-    showEventDetailsPage(hash);
+    showEventPage(hash);
   } else if (hash === 'add') {
     showAddPage();
   } else {
