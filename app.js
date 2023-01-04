@@ -7,7 +7,12 @@ const showEvents = () => {
 
   for (const event of sportData) {
     eventId++;
-    console.log(eventId);
+    console.log(
+      eventId,
+      `${event.homeTeam != null ? event.homeTeam.abbreviation : '???'} vs ${
+        event.awayTeam != null ? event.awayTeam.abbreviation : '???'
+      }`
+    );
     events += `
     <div class="event ${event.status}">
       <a href="#${eventId}" >
@@ -72,4 +77,25 @@ const showHomePage = () => {
   console.log('Home.');
 };
 
-showHomePage();
+const showAddPage = () => console.log('Add.');
+
+const showEventDetailsPage = eventId => {
+  console.log(`Event details: ${eventId}`);
+};
+
+const checkHash = () => {
+  let hash = window.location.hash.substring(1);
+  if (hash > 0 && hash <= sportData.length) {
+    showEventDetailsPage(hash);
+  } else if (hash === 'add') {
+    showAddPage();
+  } else {
+    showHomePage();
+  }
+};
+
+checkHash();
+
+window.addEventListener('hashchange', function () {
+  checkHash();
+});
