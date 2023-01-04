@@ -1,6 +1,6 @@
 import sportDataJSON from './sportData.json' assert { type: 'json' };
 let sportData = sportDataJSON.data;
-const main = document.getElementsByTagName('main')[0];
+const mainElement = document.getElementsByTagName('main')[0];
 
 const showEvents = () => {
   let events = '',
@@ -39,8 +39,23 @@ const showEvents = () => {
 };
 
 const showHomePage = () => {
-  const main = document.getElementsByTagName('main')[0];
-  main.innerHTML = `
+  const filterEvents = () => {
+    const events = document.querySelectorAll('.event');
+    const scheduledEvents = document.querySelectorAll('.scheduled');
+    const playedEvents = document.querySelectorAll('.played');
+
+    if (selectElement.value === 'all') {
+      events.forEach(event => (event.style.display = 'block'));
+    } else if (selectElement.value === 'scheduled') {
+      scheduledEvents.forEach(event => (event.style.display = 'block'));
+      playedEvents.forEach(event => (event.style.display = 'none'));
+    } else {
+      playedEvents.forEach(event => (event.style.display = 'block'));
+      scheduledEvents.forEach(event => (event.style.display = 'none'));
+    }
+  };
+
+  mainElement.innerHTML = `
 <p>This is a simple football calendar of the AFC Champions League.</p>
 
     <label for="events">Event status:</label>
@@ -55,25 +70,10 @@ const showHomePage = () => {
     <div class="events"></div>
 `;
 
-  const select = document.getElementsByTagName('select')[0];
+  const selectElement = document.getElementsByTagName('select')[0];
+  selectElement.addEventListener('change', filterEvents);
 
   showEvents();
-
-  select.addEventListener('change', function () {
-    const events = document.querySelectorAll('.event');
-    const scheduledEvents = document.querySelectorAll('.scheduled');
-    const playedEvents = document.querySelectorAll('.played');
-
-    if (select.value === 'all') {
-      events.forEach(event => (event.style.display = 'block'));
-    } else if (select.value === 'scheduled') {
-      scheduledEvents.forEach(event => (event.style.display = 'block'));
-      playedEvents.forEach(event => (event.style.display = 'none'));
-    } else {
-      playedEvents.forEach(event => (event.style.display = 'block'));
-      scheduledEvents.forEach(event => (event.style.display = 'none'));
-    }
-  });
 
   console.log('Home.');
 };
@@ -82,7 +82,7 @@ const showAddPage = () => console.log('Add.');
 
 const showEventDetailsPage = eventId => {
   console.log(`Event details: ${eventId}`);
-  main.innerHTML = `Event details: ${eventId}`;
+  mainElement.innerHTML = `Event details: ${eventId}`;
 };
 
 const checkHash = () => {
@@ -98,6 +98,4 @@ const checkHash = () => {
 
 checkHash();
 
-window.addEventListener('hashchange', function () {
-  checkHash();
-});
+window.addEventListener('hashchange', checkHash);
