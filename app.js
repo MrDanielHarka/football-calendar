@@ -1,5 +1,6 @@
 import sportDataJSON from './sportData.json' assert { type: 'json' };
 let sportData = sportDataJSON.data;
+const main = document.getElementsByTagName('main')[0];
 
 const showEvents = () => {
   let events = '',
@@ -39,7 +40,7 @@ const showEvents = () => {
 
 const showHomePage = () => {
   const main = document.getElementsByTagName('main')[0];
-  main.innerHTML += `
+  main.innerHTML = `
 <p>This is a simple football calendar of the AFC Champions League.</p>
 
     <label for="events">Event status:</label>
@@ -81,6 +82,7 @@ const showAddPage = () => console.log('Add.');
 
 const showEventDetailsPage = eventId => {
   console.log(`Event details: ${eventId}`);
+  main.innerHTML = `Event details: ${eventId}`;
 };
 
 const checkHash = () => {
