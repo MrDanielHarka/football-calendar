@@ -2,8 +2,14 @@ import sportDataJSON from './sportData.json' assert { type: 'json' };
 let sportData = sportDataJSON.data;
 const mainElement = document.getElementsByTagName('main')[0];
 
-const showEvents = () => {
-  const deleteEvent = e => {
+const hideModal = () => {
+  console.log('Clicked.');
+  document.getElementsByClassName('modal')[0].style.display = 'none';
+  document.getElementsByClassName('modal-background')[0].style.display = 'none';
+};
+
+const loadEvents = () => {
+  const showDeleteConfirmation = e => {
     console.log('Event deleting logic + confirmation modal here.');
     console.log('Deleted event: #', e.target.getAttribute('data-delete'));
   };
@@ -35,7 +41,7 @@ const showEvents = () => {
           <span>Time: ${event.timeVenueUTC}</span>
           <br />
         </a>
-        <button class="button button--red deleteEvent adminComponent" data-delete="${eventId}">Delete event</button>
+        <button class="button button--red showDeleteConfirmation adminComponent" data-delete="${eventId}">Delete event</button>
       </div>
     `;
   }
@@ -43,16 +49,16 @@ const showEvents = () => {
 
   document.getElementsByClassName('events')[0].innerHTML = events;
 
-  document.querySelectorAll('.deleteEvent').forEach(element => {
-    element.addEventListener('click', deleteEvent);
+  document.querySelectorAll('.showDeleteConfirmation').forEach(element => {
+    element.addEventListener('click', showDeleteConfirmation);
   });
 };
 
-const resetEvents = () => {
-  console.log('Event resetting logic + confirmation modal here.');
-};
-
 const showHomePage = () => {
+  const resetEvents = () => {
+    console.log('Event resetting logic + confirmation modal here.');
+  };
+
   const filterEvents = () => {
     const events = document.querySelectorAll('.event');
     const scheduledEvents = document.querySelectorAll('.scheduled');
@@ -92,7 +98,7 @@ const showHomePage = () => {
   const selectElement = document.getElementsByTagName('select')[0];
   selectElement.addEventListener('change', filterEvents);
 
-  showEvents();
+  loadEvents();
 
   window.addEventListener('hashchange', checkHash);
   document
@@ -128,6 +134,6 @@ const checkHash = () => {
 
 checkHash();
 
-document
-  .getElementsByClassName('modal-background')[0]
-  .addEventListener('click', () => console.log('Clicked.'));
+document.querySelectorAll('.hideModal').forEach(element => {
+  element.addEventListener('click', hideModal);
+});
