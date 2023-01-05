@@ -3,6 +3,11 @@ let sportData = sportDataJSON.data;
 const mainElement = document.getElementsByTagName('main')[0];
 
 const showEvents = () => {
+  const deleteEvent = e => {
+    console.log('Event deleting logic + confirmation modal here.');
+    console.log('Deleted event: #', e.target.getAttribute('data-delete'));
+  };
+
   let events = '',
     eventId = 0;
 
@@ -16,29 +21,35 @@ const showEvents = () => {
       }`
     );
     events += `
-        <div class="event ${event.status} ">
-          <a href="#${eventId}" class="background rounded shadow">
-            <span
-              >${event.homeTeam != null ? event.homeTeam.abbreviation : 'N/A'}
-              vs ${
-                event.awayTeam != null ? event.awayTeam.abbreviation : 'N/A'
-              }</span
-            >
-            <br />
-            <span>Date: ${event.dateVenue}</span>
-            <br />
-            <span>Time: ${event.timeVenueUTC}</span>
-            <br />
-          </a>
-          <b style="color: red">Delete event</b>
+        <div class="event ${event.status}">
+        <a href="#${eventId}" class="background rounded shadow">
+          <span
+            >${event.homeTeam != null ? event.homeTeam.abbreviation : 'N/A'} vs
+            ${
+              event.awayTeam != null ? event.awayTeam.abbreviation : 'N/A'
+            }</span
+          >
           <br />
+          <span>Date: ${event.dateVenue}</span>
           <br />
-        </div>
+          <span>Time: ${event.timeVenueUTC}</span>
+          <br />
+        </a>
+        <button class="button button--red deleteEvent adminComponent" data-delete="${eventId}">Delete event</button>
+      </div>
     `;
   }
   events += ` </div>`;
 
   document.getElementsByClassName('events')[0].innerHTML = events;
+
+  document.querySelectorAll('.deleteEvent').forEach(element => {
+    element.addEventListener('click', deleteEvent);
+  });
+};
+
+const resetEvents = () => {
+  console.log('Event resetting logic + confirmation modal here.');
 };
 
 const showHomePage = () => {
@@ -59,16 +70,21 @@ const showHomePage = () => {
   };
 
   mainElement.innerHTML = `
+
 <p>This is a simple football calendar of the AFC Champions League.</p>
 
+<button class="button button--green addNewEvent adminComponent">Add new event</button>
+  <button class="button button--blue resetEvents adminComponent">Reset events</button>
+
+  <br>
+
+
     <label for="events">Event status:</label>
-    <select name="events" id="events">
+    <select name="events" id="events" class="button">
       <option value="all">All</option>
       <option value="scheduled">Scheduled</option>
       <option value="played">Played</option>
     </select>
-
-    <p style="color: green; font-weight: bold">Add new event</p>
 
     <div class="events"></div>
 `;
@@ -78,7 +94,13 @@ const showHomePage = () => {
 
   showEvents();
 
-  console.log('Home.');
+  window.addEventListener('hashchange', checkHash);
+  document
+    .getElementsByClassName('addNewEvent')[0]
+    .addEventListener('click', showAddPage);
+  document
+    .getElementsByClassName('resetEvents')[0]
+    .addEventListener('click', resetEvents);
 };
 
 const showEventPage = eventId => {
@@ -88,7 +110,10 @@ const showEventPage = eventId => {
   `;
 };
 
-const showAddPage = () => console.log('Add.');
+const showAddPage = () => {
+  window.location.hash = '#add';
+  mainElement.textContent = 'Add page.';
+};
 
 const checkHash = () => {
   let hash = window.location.hash.substring(1);
@@ -102,5 +127,3 @@ const checkHash = () => {
 };
 
 checkHash();
-
-window.addEventListener('hashchange', checkHash);

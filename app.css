@@ -58,7 +58,7 @@ main {
 }
 
 .event a {
-  margin: 1rem;
+  margin: 2rem 1rem 0 1rem;
   padding: 1rem;
   min-width: 250px;
   display: block;
@@ -67,4 +67,36 @@ main {
 aside {
   margin: 2rem 0;
   padding: 0.5rem;
+}
+
+.button {
+  margin: 0.5rem;
+  padding: 0.6rem 1rem;
+  min-width: 125px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.1411764706), 0 1px 3px 0 rgba(0, 0, 0, 0.1215686275);
+}
+.button--red {
+  background-color: red;
+  color: #fff;
+}
+.button--red:hover {
+  background-color: darkred;
+}
+.button--green {
+  background-color: green;
+  color: #fff;
+}
+.button--green:hover {
+  background-color: darkgreen;
+}
+.button--blue {
+  background-color: blue;
+  color: #fff;
+}
+.button--blue:hover {
+  background-color: darkblue;
 }/*# sourceMappingURL=app.css.map */

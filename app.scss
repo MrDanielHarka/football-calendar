@@ -63,7 +63,7 @@ main {
 
 .event {
   & a {
-    margin: 1rem;
+    margin: 2rem 1rem 0 1rem;
     padding: 1rem;
     min-width: 250px;
     display: block;
@@ -73,4 +73,43 @@ main {
 aside {
   margin: 2rem 0;
   padding: 0.5rem;
+}
+
+.button {
+  margin: 0.5rem;
+  padding: 0.6rem 1rem;
+  min-width: 125px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 2px 1px -1px #0003, 0 1px 1px 0 #00000024, 0 1px 3px 0 #0000001f;
+
+  &--red {
+    background-color: red;
+    color: #fff;
+    &:hover {
+      background-color: darkred;
+    }
+  }
+
+  &--green {
+    background-color: green;
+    color: #fff;
+    &:hover {
+      background-color: darkgreen;
+    }
+  }
+
+  &--blue {
+    background-color: blue;
+    color: #fff;
+    &:hover {
+      background-color: darkblue;
+    }
+  }
+}
+
+.adminComponent {
+  // display: none;
 }
