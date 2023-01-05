@@ -75,9 +75,28 @@ aside {
   min-width: 125px;
   border: none;
   border-radius: 4px;
-  outline: none;
   cursor: pointer;
   box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.1411764706), 0 1px 3px 0 rgba(0, 0, 0, 0.1215686275);
+}
+.button--white {
+  background-color: #fff;
+  color: #000;
+  border: 2px solid black;
+}
+.button--white:hover {
+  border: 2px solid #000;
+  background-color: #000;
+  color: #fff;
+}
+.button--black {
+  border: 2px solid #000;
+  background-color: #000;
+  color: #fff;
+}
+.button--black:hover {
+  border: 2px solid #000;
+  background-color: #fff;
+  color: #000;
 }
 .button--red {
   background-color: red;
@@ -99,4 +118,35 @@ aside {
 }
 .button--blue:hover {
   background-color: darkblue;
+}
+
+.modal {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  padding: 1rem 2rem 2rem 2rem;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: #fff;
+}
+@media only screen and (min-width: 450px) {
+  .modal {
+    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.1411764706), 0 1px 3px 0 rgba(0, 0, 0, 0.1215686275);
+    border-radius: 4px;
+    height: 200px;
+    width: 350px;
+  }
+  .modal-background {
+    display: none;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #000;
+    opacity: 0.6;
+  }
 }/*# sourceMappingURL=app.css.map */

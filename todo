@@ -1,4 +1,6 @@
 - font
+- Are you sure you would like to delete this event?
+- Are you sure you would like to reset the events?
 - add new event | reset events
 - html input max: 3
 - localstorage ?
@@ -7,3 +9,4 @@
 - Footer: Created by: Daniel Harka | GitHub | Manualű
 - Edit event ?
 - coding+billiard=love | Vienna<3
+- remove 00s from time

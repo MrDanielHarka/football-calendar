@@ -127,3 +127,7 @@ const checkHash = () => {
 };
 
 checkHash();
+
+document
+  .getElementsByClassName('modal-background')[0]
+  .addEventListener('click', () => console.log('Clicked.'));
