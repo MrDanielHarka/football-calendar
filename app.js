@@ -6,6 +6,7 @@ const showEvents = () => {
   let events = '',
     eventId = 0;
 
+  events += `<div class="flex-container">`;
   for (const event of sportData) {
     eventId++;
     console.log(
@@ -15,25 +16,27 @@ const showEvents = () => {
       }`
     );
     events += `
-    <div class="event ${event.status}">
-      <a href="#${eventId}" >
-          <span>${
-            event.homeTeam != null ? event.homeTeam.abbreviation : 'N/A'
-          } vs ${
-      event.awayTeam != null ? event.awayTeam.abbreviation : 'N/A'
-    }</span>
-    <br>
-          <span>Date: ${event.dateVenue}</span>
-          <br>
-          <span>Time: ${event.timeVenueUTC}</span>
-          <br>
+        <div class="event ${event.status} ">
+          <a href="#${eventId}" class="background rounded shadow">
+            <span
+              >${event.homeTeam != null ? event.homeTeam.abbreviation : 'N/A'}
+              vs ${
+                event.awayTeam != null ? event.awayTeam.abbreviation : 'N/A'
+              }</span
+            >
+            <br />
+            <span>Date: ${event.dateVenue}</span>
+            <br />
+            <span>Time: ${event.timeVenueUTC}</span>
+            <br />
           </a>
           <b style="color: red">Delete event</b>
-          <br>
-          <br>
-    </div>
+          <br />
+          <br />
+        </div>
     `;
   }
+  events += ` </div>`;
 
   document.getElementsByClassName('events')[0].innerHTML = events;
 };

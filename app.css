@@ -10,18 +10,22 @@ body {
   padding: 0 10px;
   text-align: center;
   max-width: 1500px;
-  background-color: #222;
-  color: #fff;
+  background-color: #fafafa;
+  color: #222;
 }
 
 a {
   text-decoration: none;
-  color: #fff;
+  color: #222;
   font-weight: bold;
 }
 
 .rounded {
-  border-radius: 7px;
+  border-radius: 4px;
+}
+
+.shadow {
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.1411764706), 0 1px 3px 0 rgba(0, 0, 0, 0.1215686275);
 }
 
 .flex-container {
@@ -46,11 +50,18 @@ header {
 }
 
 .background {
-  background-color: #444;
+  background-color: #fff;
 }
 
 main {
   padding-top: 2rem;
+}
+
+.event a {
+  margin: 1rem;
+  padding: 1rem;
+  min-width: 250px;
+  display: block;
 }
 
 aside {
