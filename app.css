@@ -54,7 +54,7 @@ a {
 }
 
 .flex-container {
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   margin: auto;
   display: flex;
@@ -147,6 +147,7 @@ aside {
 
 .modal {
   display: flex;
+  display: none;
   align-items: center;
   position: fixed;
   padding: 1rem 2rem 2rem 2rem;
@@ -165,6 +166,7 @@ aside {
     width: 350px;
   }
   .modal-background {
+    display: none;
     position: fixed;
     right: 0;
     left: 0;

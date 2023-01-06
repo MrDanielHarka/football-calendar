@@ -2,16 +2,26 @@ import sportDataJSON from './sportData.json' assert { type: 'json' };
 let sportData = sportDataJSON.data;
 const mainElement = document.getElementsByTagName('main')[0];
 
-const hideModal = () => {
-  console.log('Clicked.');
-  document.getElementsByClassName('modal')[0].style.display = 'none';
-  document.getElementsByClassName('modal-background')[0].style.display = 'none';
-};
-
 const loadEvents = () => {
+  const showModal = () => {
+    document.querySelector('.modal-background').style.display = 'block';
+    document.querySelector('.modal').style.display = 'flex';
+  };
+  const hideModal = () => {
+    console.log('Clicked.');
+    document.getElementsByClassName('modal')[0].style.display = 'none';
+    document.getElementsByClassName('modal-background')[0].style.display =
+      'none';
+  };
+  const deleteEvent = eventId => console.log(`Event #${eventId} is deleted.`);
+
   const showDeleteConfirmation = e => {
     console.log('Event deleting logic + confirmation modal here.');
-    console.log('Deleted event: #', e.target.getAttribute('data-delete'));
+    const deletableEventId = e.target.getAttribute('data-delete');
+    showModal();
+    document
+      .querySelector('.confirmationButton')
+      .addEventListener('click', () => deleteEvent(deletableEventId));
   };
 
   let events = '',
@@ -52,6 +62,10 @@ const loadEvents = () => {
   document.querySelectorAll('.showDeleteConfirmation').forEach(element => {
     element.addEventListener('click', showDeleteConfirmation);
   });
+
+  document.querySelectorAll('.hideModal').forEach(element => {
+    element.addEventListener('click', hideModal);
+  });
 };
 
 const showHomePage = () => {
@@ -78,20 +92,15 @@ const showHomePage = () => {
   mainElement.innerHTML = `
 
 <p>This is a simple football calendar of the AFC Champions League.</p>
-
 <button class="button button--green addNewEvent adminComponent">Add new event</button>
   <button class="button button--blue resetEvents adminComponent">Reset events</button>
-
   <br>
-
-
     <label for="events">Event status:</label>
     <select name="events" id="events" class="button">
       <option value="all">All</option>
       <option value="scheduled">Scheduled</option>
       <option value="played">Played</option>
     </select>
-
     <div class="events"></div>
 `;
 
@@ -100,7 +109,6 @@ const showHomePage = () => {
 
   loadEvents();
 
-  window.addEventListener('hashchange', checkHash);
   document
     .getElementsByClassName('addNewEvent')[0]
     .addEventListener('click', showAddPage);
@@ -134,6 +142,4 @@ const checkHash = () => {
 
 checkHash();
 
-document.querySelectorAll('.hideModal').forEach(element => {
-  element.addEventListener('click', hideModal);
-});
+window.addEventListener('hashchange', checkHash);

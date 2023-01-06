@@ -58,8 +58,7 @@ a {
 }
 
 .flex-container {
-  justify-content: space-around;
-
+  justify-content: space-evenly;
   flex-wrap: wrap;
   margin: auto;
   display: flex;
@@ -160,13 +159,13 @@ aside {
   }
 }
 
-.adminComponent {
-  // display: none;
-}
+// .adminComponent {
+//   display: none;
+// }
 
 .modal {
   display: flex;
-  // display: none;
+  display: none;
   align-items: center;
   position: fixed;
   padding: 1rem 2rem 2rem 2rem;
@@ -185,7 +184,7 @@ aside {
     width: 350px;
 
     &-background {
-      // display: none;
+      display: none;
       position: fixed;
       right: 0;
       left: 0;
