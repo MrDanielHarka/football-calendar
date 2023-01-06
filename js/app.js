@@ -1,4 +1,4 @@
-import sportDataJSON from './sportData.json' assert { type: 'json' };
+import sportDataJSON from '/assets/sportData.json' assert { type: 'json' };
 let sportData = sportDataJSON.data;
 const mainElement = document.getElementsByTagName('main')[0];
 
