@@ -27,6 +27,8 @@ const deleteEvent = () => {
 };
 
 const loadEvents = () => {
+  const selectElement = document.getElementsByTagName('select')[0];
+  selectElement.value = 'all';
   const showModal = () => {
     document.querySelector('.modal-background').style.display = 'block';
     document.querySelector('.modal').style.display = 'flex';
