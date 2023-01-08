@@ -49,14 +49,6 @@ a {
   font-weight: bold;
 }
 
-.rounded {
-  border-radius: 4px;
-}
-
-.shadow {
-  box-shadow: 0 2px 1px -1px #0003, 0 1px 1px 0 #00000024, 0 1px 3px 0 #0000001f;
-}
-
 .flex-container {
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -83,7 +75,16 @@ header {
 
 .background {
   background-color: #fff;
+  box-shadow: 0 2px 1px -1px #0003, 0 1px 1px 0 #00000024, 0 1px 3px 0 #0000001f;
 }
+
+.rounded {
+  border-radius: 4px;
+}
+
+// .shadow {
+//   box-shadow: 0 2px 1px -1px #0003, 0 1px 1px 0 #00000024, 0 1px 3px 0 #0000001f;
+// }
 
 main {
   padding-top: 2rem;
