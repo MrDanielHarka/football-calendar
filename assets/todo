@@ -1,7 +1,6 @@
 - colors in variables
 - confirmationButton: Remove confirmDel class and add confirmRes class || Remove confirmRes class and add confirmDel class
 - Add confirmationButton eventlistener after class is assigned
-- Are you sure you would like to delete this event?
 - Are you sure you would like to reset the events?
 - add new event | reset events
 - html input max: 3

@@ -1,26 +1,48 @@
 import { sportData, mainElement } from '/js/app.js';
 import { renderAddPage } from '/js/add.js';
 
+const confirmationText = document.querySelector('.confirmationText');
+
+const deleteConfirmationButton = document.querySelector(
+  '.deleteConfirmationButton'
+);
+
+const resetConfirmationButton = document.querySelector(
+  '.resetConfirmationButton'
+);
+
+const hideModal = () => {
+  console.log('Modal closed.');
+  document.getElementsByClassName('modal')[0].style.display = 'none';
+  document.getElementsByClassName('modal-background')[0].style.display = 'none';
+};
+
+const deleteEvent = () => {
+  const eventId = deleteConfirmationButton.getAttribute('data-delete');
+  console.log(`Event #${eventId} is deleted.`);
+  sportData.splice(eventId - 1, 1);
+  console.log(sportData);
+  hideModal();
+  loadEvents();
+};
+
 const loadEvents = () => {
   const showModal = () => {
     document.querySelector('.modal-background').style.display = 'block';
     document.querySelector('.modal').style.display = 'flex';
   };
-  const hideModal = () => {
-    console.log('Clicked.');
-    document.getElementsByClassName('modal')[0].style.display = 'none';
-    document.getElementsByClassName('modal-background')[0].style.display =
-      'none';
-  };
-  const deleteEvent = eventId => console.log(`Event #${eventId} is deleted.`);
 
   const showDeleteConfirmation = e => {
+    confirmationText.textContent =
+      'Are you sure you would like to delete this event?';
+    resetConfirmationButton.style.display = 'none';
+    deleteConfirmationButton.style.display = 'inline-block';
+    deleteConfirmationButton.setAttribute(
+      'data-delete',
+      e.target.getAttribute('data-delete')
+    );
     console.log('Event deleting logic + confirmation modal here.');
-    const deletableEventId = e.target.getAttribute('data-delete');
     showModal();
-    document
-      .querySelector('.confirmationButton')
-      .addEventListener('click', () => deleteEvent(deletableEventId));
   };
 
   let events = '',
@@ -38,6 +60,8 @@ const loadEvents = () => {
     events += `
         <div class="event ${event.status}">
         <a href="#${eventId}" class="card shadow">
+        ${eventId}
+        <br>
           <span
             >${event.homeTeam != null ? event.homeTeam.abbreviation : 'N/A'} vs
             ${
@@ -60,10 +84,6 @@ const loadEvents = () => {
 
   document.querySelectorAll('.showDeleteConfirmation').forEach(element => {
     element.addEventListener('click', showDeleteConfirmation);
-  });
-
-  document.querySelectorAll('.hideModal').forEach(element => {
-    element.addEventListener('click', hideModal);
   });
 
   document
@@ -116,3 +136,8 @@ export const renderHomePage = () => {
     .getElementsByClassName('resetEvents')[0]
     .addEventListener('click', resetEvents);
 };
+
+deleteConfirmationButton.addEventListener('click', () => deleteEvent());
+document.querySelectorAll('.hideModal').forEach(element => {
+  element.addEventListener('click', hideModal);
+});
