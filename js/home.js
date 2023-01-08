@@ -37,7 +37,7 @@ const loadEvents = () => {
     );
     events += `
         <div class="event ${event.status}">
-        <a href="#${eventId}" class="background rounded shadow">
+        <a href="#${eventId}" class="card shadow">
           <span
             >${event.homeTeam != null ? event.homeTeam.abbreviation : 'N/A'} vs
             ${
