@@ -1,3 +1,4 @@
+- responsive mobile menu
 - colors in variables
 - Are you sure you would like to reset the events?
 - guard #add !ifLoggedIn

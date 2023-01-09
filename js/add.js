@@ -277,7 +277,7 @@ export const renderAddPage = () => {
         <textarea id="message" rows="4" cols="50"></textarea>
         <br /><br />
 
-        <button class="button button--black">Add event</button>
+        <button class="button button--green">Add event</button>
       </form>
   `;
   document.querySelector('form').addEventListener('submit', e => addEvent(e));

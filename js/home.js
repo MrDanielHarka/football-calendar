@@ -62,7 +62,8 @@ const loadEvents = () => {
     events += `
         <div class="event ${event.status}">
         <a href="#${eventId}" class="card shadow">
-        ${eventId}
+        <br>
+        <img src="/assets/img.png" alt="Football Calendar" />
         <br>
           <span
             >${
@@ -124,7 +125,7 @@ export const renderHomePage = () => {
 
 <p>This is a simple football calendar of the AFC Champions League.</p>
 <button class="button button--green addNewEvent adminComponent">Add new event</button>
-  <button class="button button--blue resetEvents adminComponent">Reset events</button>
+  <button class="button button--red resetEvents adminComponent">Reset events</button>
   <br>
     <label for="events">Event status:</label>
     <select name="events" id="events" class="button">
