@@ -49,6 +49,10 @@ a {
   font-weight: bold;
 }
 
+.red-text {
+  color: red;
+}
+
 .flex-container {
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -208,6 +212,20 @@ aside {
   font-weight: bold;
 }
 
-.adminComponent {
-  display: none;
+input,
+textarea {
+  padding: 0.6rem;
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0 2px 1px -1px #0003, 0 1px 1px 0 #00000024, 0 1px 3px 0 #0000001f;
+  background-color: #fff;
+  resize: none;
+}
+
+// .adminComponent {
+//   display: none;
+// }
+
+.team {
+  min-width: 250px;
 }
