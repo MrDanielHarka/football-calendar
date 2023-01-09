@@ -11,11 +11,6 @@
   src: local(""), url("/fonts/roboto-v30-latin-700.woff2") format("woff2"), url("/fonts/roboto-v30-latin-700.woff") format("woff");
 }
 * {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
@@ -25,6 +20,11 @@
 html {
   margin-left: calc(100vw - 100%);
   margin-right: 0;
+  cursor: default;
+}
+
+img {
+  max-width: 100%;
 }
 
 body {
@@ -53,7 +53,7 @@ a {
 }
 .flex-container--small {
   justify-content: space-between;
-  min-width: 270px;
+  min-width: 290px;
 }
 
 .info-wrapper {
@@ -69,6 +69,11 @@ header {
 .card {
   background-color: #fff;
   box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.1411764706), 0 1px 3px 0 rgba(0, 0, 0, 0.1215686275);
+}
+.card--big {
+  max-width: 700px;
+  margin: auto;
+  padding: 0.5rem 1rem;
 }
 
 main {
@@ -168,4 +173,13 @@ aside {
     background-color: #000;
     opacity: 0.6;
   }
+}
+
+.teamname {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.adminComponent {
+  display: none;
 }/*# sourceMappingURL=app.css.map */

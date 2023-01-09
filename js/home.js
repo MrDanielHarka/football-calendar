@@ -55,8 +55,8 @@ const loadEvents = () => {
     eventId++;
     console.log(
       eventId,
-      `${event.homeTeam != null ? event.homeTeam.abbreviation : 'N/A'} vs ${
-        event.awayTeam != null ? event.awayTeam.abbreviation : 'N/A'
+      `${event.homeTeam != null ? event.homeTeam.abbreviation : '???'} vs ${
+        event.awayTeam != null ? event.awayTeam.abbreviation : '???'
       }`
     );
     events += `
@@ -65,16 +65,16 @@ const loadEvents = () => {
         ${eventId}
         <br>
           <span
-            >${event.homeTeam != null ? event.homeTeam.abbreviation : 'N/A'} vs
+            >${event.homeTeam != null ? event.homeTeam.abbreviation : '???'} vs
             ${
-              event.awayTeam != null ? event.awayTeam.abbreviation : 'N/A'
+              event.awayTeam != null ? event.awayTeam.abbreviation : '???'
             }</span
           >
           <br />
           <span>Date: ${event.dateVenue}</span>
           <br />
-          <span>Time: ${event.timeVenueUTC}</span>
-          <br />
+          <span>Time: ${event.timeVenueUTC.slice(0, 5)} (UTC)</span>
+          <br /><br />
         </a>
         <button class="button button--red showDeleteConfirmation adminComponent" data-delete="${eventId}">Delete event</button>
       </div>
