@@ -1,5 +1,4 @@
 - fix home & event null & property.null
-- white space pre wrap
 - colors in variables
 - Are you sure you would like to reset the events?
 - add new event | reset events
@@ -13,3 +12,4 @@
   -- For users
   -- For admins
   -- For developers (Lighthouse, validator, responsivity)
+  - Firefox broke after commit 2d0af03 !

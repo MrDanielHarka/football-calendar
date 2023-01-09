@@ -65,9 +65,15 @@ const loadEvents = () => {
         ${eventId}
         <br>
           <span
-            >${event.homeTeam != null ? event.homeTeam.abbreviation : '???'} vs
+            >${
+              event.homeTeam != null && event.homeTeam.abbreviation !== null
+                ? event.homeTeam.abbreviation
+                : '???'
+            } vs
             ${
-              event.awayTeam != null ? event.awayTeam.abbreviation : '???'
+              event.awayTeam != null && event.awayTeam.abbreviation !== null
+                ? event.awayTeam.abbreviation
+                : '???'
             }</span
           >
           <br />

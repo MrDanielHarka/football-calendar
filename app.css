@@ -196,6 +196,10 @@ textarea {
   max-width: 95%;
 }
 
+.message-text {
+  white-space: pre-wrap;
+}
+
 .team {
   min-width: 250px;
 }/*# sourceMappingURL=app.css.map */
