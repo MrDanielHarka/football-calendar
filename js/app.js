@@ -6,6 +6,11 @@ import { renderAddPage } from '/js/add.js';
 export const sportData = sportDataJSON.data;
 export const mainElement = document.getElementsByTagName('main')[0];
 
+const scrollTop = () => {
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+};
+
 const checkHashThenNavigate = () => {
   let hash = window.location.hash.substring(1);
   if (hash > 0 && hash <= sportData.length) {
@@ -15,6 +20,7 @@ const checkHashThenNavigate = () => {
   } else {
     renderHomePage();
   }
+  scrollTop();
 };
 
 checkHashThenNavigate();
