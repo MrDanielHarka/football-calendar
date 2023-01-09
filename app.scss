@@ -80,6 +80,7 @@ header {
 .card {
   background-color: #fff;
   box-shadow: 0 2px 1px -1px #0003, 0 1px 1px 0 #00000024, 0 1px 3px 0 #0000001f;
+  max-width: 300px;
   &--big {
     max-width: 700px;
     margin: auto;
@@ -220,6 +221,7 @@ textarea {
   box-shadow: 0 2px 1px -1px #0003, 0 1px 1px 0 #00000024, 0 1px 3px 0 #0000001f;
   background-color: #fff;
   resize: none;
+  max-width: 95%;
 }
 
 // .adminComponent {

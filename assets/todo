@@ -1,21 +1,13 @@
-- redirect to event page after creating
-- add zeros to hour and minute
+- fix home & event null & property.null
+- white space pre wrap
 - colors in variables
-
-- abbreviation to uppercase
-- country code to uppercase
-- stage name&id to uppercase
-
 - Are you sure you would like to reset the events?
 - add new event | reset events
 - localstorage ?
 - .adminElement
 - Footer: Made with <3 by daniel.harka.com | Documentation
-- Edit event ?
 - Add 404 page
 - coding+billiard=love | Vienna<3
-- remove 00s from time
-- animations ?
 - Documentation
   -- The Task (PDF)
   -- For users
