@@ -1,5 +1,7 @@
+import { renderHomePage } from './home.js';
+
 const xhr = new XMLHttpRequest(),
-  backendURL = 'https://94wrfe-3000.preview.csb.app';
+  backendURL = 'https://gp0eij-3000.preview.csb.app';
 // backendURL = 'http://localhost:3000';
 
 export let sportData = 0;
@@ -8,7 +10,7 @@ export const loadData = () => {
   xhr.open('GET', `${backendURL}/load`);
   xhr.onload = () => {
     console.log(JSON.parse(xhr.responseText).data);
-    return (sportData = JSON.parse(xhr.responseText).data);
+    sportData = JSON.parse(xhr.responseText).data;
   };
   xhr.send();
 };
@@ -32,7 +34,15 @@ export const saveData = () => {
   // console.log(`{"data":${JSON.stringify(sportData)}}`);
 };
 
+export const resetData = () => {
+  sportData = 0;
+  console.log('Events reseted.');
+  xhr.open('PUT', `${backendURL}/reset`);
+  xhr.onload = () => {
+    sportData = JSON.parse(xhr.responseText).data;
+  };
+  xhr.send();
+  sportData ? renderHomePage() : setTimeout(renderHomePage, 50);
+};
+
 loadData();
-// setTimeout(() => {
-//   console.log(`{"data":${JSON.stringify(sportData)}}`);
-// }, 1000);

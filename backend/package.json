@@ -1,0 +1,14 @@
+{
+  "name": "backend.js",
+  "version": "1",
+  "description": "A simple football calendar of the AFC Champions League.",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  },
+  "engines": {
+    "node": "10.x"
+  }
+}

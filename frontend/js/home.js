@@ -1,5 +1,5 @@
 import { mainElement } from './index.js';
-import { sportData, saveData } from './http.js';
+import { sportData, saveData, resetData } from './http.js';
 import { renderAddPage } from './add.js';
 
 const confirmationText = document.querySelector('.confirmationText');
@@ -28,12 +28,26 @@ const deleteEvent = () => {
   saveData();
 };
 
+const resetEvents = () => {
+  resetData();
+  hideModal();
+};
+
 const loadEvents = () => {
   const selectElement = document.getElementsByTagName('select')[0];
   selectElement.value = 'all';
   const showModal = () => {
     document.querySelector('.modal-background').style.display = 'block';
     document.querySelector('.modal').style.display = 'flex';
+  };
+
+  const showResetConfirmation = () => {
+    confirmationText.textContent =
+      'Are you sure you would like to reset the events?';
+    deleteConfirmationButton.style.display = 'none';
+    resetConfirmationButton.style.display = 'inline-block';
+    console.log('Event resetting logic + confirmation modal here.');
+    showModal();
   };
 
   const showDeleteConfirmation = e => {
@@ -88,6 +102,10 @@ const loadEvents = () => {
         <button class="button button--red showDeleteConfirmation adminComponent" data-delete="${eventId}">Delete event</button>
       </div>
     `;
+
+    document
+      .querySelector('.showResetConfirmation')
+      .addEventListener('click', showResetConfirmation);
   }
   events += ` </div>`;
 
@@ -130,7 +148,7 @@ export const renderHomePage = () => {
 <p>This is a simple football calendar of the AFC Champions League.</p>
 <div class="adminComponent">
   <button class="button button--green addNewEvent">Add new event</button>
-    <button class="button button--red resetEvents">Reset events</button>
+    <button class="button button--red showResetConfirmation">Reset events</button>
 </div>
   <br>
     <label for="events">Event status:</label>
@@ -146,16 +164,14 @@ export const renderHomePage = () => {
     selectElement.addEventListener('change', filterEvents);
 
     loadEvents();
-
-    document
-      .getElementsByClassName('resetEvents')[0]
-      .addEventListener('click', resetEvents);
   } else {
     setTimeout(renderHomePage, 50);
   }
 };
 
-deleteConfirmationButton.addEventListener('click', () => deleteEvent());
+deleteConfirmationButton.addEventListener('click', deleteEvent);
+resetConfirmationButton.addEventListener('click', resetEvents);
+
 document.querySelectorAll('.hideModal').forEach(element => {
   element.addEventListener('click', hideModal);
 });

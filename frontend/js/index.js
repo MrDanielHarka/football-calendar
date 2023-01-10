@@ -71,5 +71,4 @@ const checkHashThenNavigate = async () => {
 };
 
 sportData ? checkHashThenNavigate() : setTimeout(checkHashThenNavigate, 50);
-
 window.addEventListener('hashchange', checkHashThenNavigate);

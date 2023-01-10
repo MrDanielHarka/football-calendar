@@ -1,7 +1,6 @@
 Backend
 
 - /login login
-- /reset reset
 - coding+billiard=love | Vienna<3
 
 Style
@@ -12,7 +11,6 @@ Style
 
 Structure
 
-- Are you sure you would like to reset the events?
 - reset events
 - Add 404 page
 - Save, reset, delete confirmation

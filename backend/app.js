@@ -24,9 +24,9 @@ const server = http.createServer((request, response) => {
     response.writeHead(200);
     response.end();
   } else if (request.url === '/load') {
-    const sportData = fs.readFileSync('data.json', 'utf8');
+    const data = fs.readFileSync('data.json', 'utf8');
     response.writeHead(200);
-    response.end(sportData);
+    response.end(data);
   } else if (request.url === '/save') {
     let body = '';
     request.on('data', chunk => {
@@ -36,9 +36,14 @@ const server = http.createServer((request, response) => {
       fs.writeFileSync('data.json', body);
       // const jsonData = JSON.parse(body);
       // console.log(jsonData);
-      response.writeHead(200, { 'Content-Type': 'application/json' });
-      response.end(JSON.stringify({ message: 'data received' }));
+      response.writeHead(200);
+      response.end();
     });
+  } else if (request.url === '/reset') {
+    response.writeHead(200);
+    const sportData = fs.readFileSync('sportData.json', 'utf8');
+    response.end(sportData);
+    fs.writeFileSync('data.json', fs.readFileSync('sportData.json', 'utf8'));
   } else {
     response.writeHead(404, { 'Content-Type': 'text/plain' });
     response.end(`404: ${request.url} page not found.`);
