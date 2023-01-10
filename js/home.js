@@ -101,6 +101,7 @@ const loadEvents = () => {
 };
 
 export const renderHomePage = () => {
+  window.location.hash = '#';
   const resetEvents = () => {
     console.log('Event resetting logic + confirmation modal here.');
   };
@@ -124,8 +125,10 @@ export const renderHomePage = () => {
   mainElement.innerHTML = `
 
 <p>This is a simple football calendar of the AFC Champions League.</p>
-<button class="button button--green addNewEvent adminComponent">Add new event</button>
-  <button class="button button--red resetEvents adminComponent">Reset events</button>
+<div class="adminComponent">
+  <button class="button button--green addNewEvent">Add new event</button>
+    <button class="button button--red resetEvents">Reset events</button>
+</div>
   <br>
     <label for="events">Event status:</label>
     <select name="events" id="events" class="button">

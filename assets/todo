@@ -1,9 +1,8 @@
 - responsive mobile menu
 - colors in variables
 - Are you sure you would like to reset the events?
-- guard #add !ifLoggedIn
+- Add all images fix sizes
 - reset events
-- localstorage ?
 - .adminElement
 - Add 404 page
 - coding+billiard=love | Vienna<3

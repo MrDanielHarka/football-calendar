@@ -178,8 +178,8 @@ aside {
   font-weight: bold;
 }
 
-input,
-textarea {
+.add input,
+.add textarea {
   padding: 0.6rem;
   border-radius: 4px;
   border: none;
@@ -259,4 +259,25 @@ footer span {
   footer span {
     display: inline;
   }
+}
+
+.login {
+  margin: 3rem auto;
+  padding: 0.1rem 0 1.5rem 0;
+  min-width: 300px;
+}
+.login input {
+  border: 0;
+  border-bottom: 2px solid black;
+  outline: 0;
+}
+.login input:focus {
+  border-bottom: 2px solid #080;
+}
+.login input:focus {
+  outline: none !important;
+}
+.login-message {
+  font-size: 14px;
+  color: red;
 }/*# sourceMappingURL=app.css.map */

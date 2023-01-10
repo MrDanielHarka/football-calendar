@@ -9,7 +9,13 @@
     <link rel="stylesheet" href="/app.css" />
     <script src="/js/app.js" type="module" defer></script>
   </head>
+
   <body>
+    <style>
+      .adminComponent {
+        display: none;
+      }
+    </style>
     <header>
       <div class="link-wrapper">
         <a href="#" class="flex-container">
@@ -17,8 +23,9 @@
           Calendar
         </a>
         <nav>
-          <a href="#"> Home </a>
-          <a href="#login"> Login </a>
+          <a href="#">Home</a>
+          <a href="#login" class="loginLink">Login</a>
+          <a href="#logout" class="adminComponent">Logout</a>
         </nav>
       </div>
     </header>
@@ -30,21 +37,18 @@
           Are you sure you would like to do this?
         </h2>
         <button
-          class="button button--white deleteConfirmationButton adminComponent"
+          class="button button--white deleteConfirmationButton"
           tabindex="1"
         >
           Yes, I'm sure.
         </button>
         <button
-          class="button button--white resetConfirmationButton adminComponent hidden"
+          class="button button--white resetConfirmationButton hidden"
           tabindex="1"
         >
           Yes, I'm sure.
         </button>
-        <button
-          class="button button--black hideModal adminComponent"
-          tabindex="1"
-        >
+        <button class="button button--black hideModal" tabindex="1">
           No, nevermind.
         </button>
       </div>

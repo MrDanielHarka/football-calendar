@@ -141,7 +141,7 @@ export const renderAddPage = () => {
    <h1>Add event</h1>
       <p>Fields marked with <span class="red-text">*</span> are mandatory.</p>
 
-      <form>
+      <form class="add">
         <h2>General details</h2>
 
         <label for="season">Season <span class="red-text">*</span></label>
@@ -280,5 +280,5 @@ export const renderAddPage = () => {
         <button class="button button--green">Add event</button>
       </form>
   `;
-  document.querySelector('form').addEventListener('submit', e => addEvent(e));
+  document.querySelector('.add').addEventListener('submit', e => addEvent(e));
 };

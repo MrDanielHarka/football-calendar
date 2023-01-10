@@ -207,15 +207,18 @@ aside {
   font-weight: bold;
 }
 
-input,
-textarea {
-  padding: 0.6rem;
-  border-radius: 4px;
-  border: none;
-  box-shadow: 0 2px 1px -1px #0003, 0 1px 1px 0 #00000024, 0 1px 3px 0 #0000001f;
-  background-color: #fff;
-  resize: none;
-  max-width: 95%;
+.add {
+  input,
+  textarea {
+    padding: 0.6rem;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 2px 1px -1px #0003, 0 1px 1px 0 #00000024,
+      0 1px 3px 0 #0000001f;
+    background-color: #fff;
+    resize: none;
+    max-width: 95%;
+  }
 }
 
 .message-text {
@@ -307,6 +310,26 @@ footer {
   }
 }
 
-// .adminComponent {
-//   display: none;
-// }
+.login {
+  margin: 3rem auto;
+  padding: 0.1rem 0 1.5rem 0;
+  min-width: 300px;
+
+  input {
+    border: 0;
+    border-bottom: 2px solid black;
+    outline: 0;
+
+    &:focus {
+      border-bottom: 2px solid #080;
+    }
+  }
+  input:focus {
+    outline: none !important;
+  }
+
+  &-message {
+    font-size: 14px;
+    color: red;
+  }
+}
