@@ -1,4 +1,5 @@
-import { sportData, mainElement } from './index.js';
+import { mainElement } from './index.js';
+import { sportData } from './http.js';
 import { renderAddPage } from './add.js';
 
 const confirmationText = document.querySelector('.confirmationText');
@@ -101,28 +102,29 @@ const loadEvents = () => {
 };
 
 export const renderHomePage = () => {
-  window.location.hash = '#';
-  const resetEvents = () => {
-    console.log('Event resetting logic + confirmation modal here.');
-  };
+  if (sportData) {
+    window.location.hash = '#';
+    const resetEvents = () => {
+      console.log('Event resetting logic + confirmation modal here.');
+    };
 
-  const filterEvents = () => {
-    const events = document.querySelectorAll('.event');
-    const scheduledEvents = document.querySelectorAll('.scheduled');
-    const playedEvents = document.querySelectorAll('.played');
+    const filterEvents = () => {
+      const events = document.querySelectorAll('.event');
+      const scheduledEvents = document.querySelectorAll('.scheduled');
+      const playedEvents = document.querySelectorAll('.played');
 
-    if (selectElement.value === 'all') {
-      events.forEach(event => (event.style.display = 'block'));
-    } else if (selectElement.value === 'scheduled') {
-      scheduledEvents.forEach(event => (event.style.display = 'block'));
-      playedEvents.forEach(event => (event.style.display = 'none'));
-    } else {
-      playedEvents.forEach(event => (event.style.display = 'block'));
-      scheduledEvents.forEach(event => (event.style.display = 'none'));
-    }
-  };
+      if (selectElement.value === 'all') {
+        events.forEach(event => (event.style.display = 'block'));
+      } else if (selectElement.value === 'scheduled') {
+        scheduledEvents.forEach(event => (event.style.display = 'block'));
+        playedEvents.forEach(event => (event.style.display = 'none'));
+      } else {
+        playedEvents.forEach(event => (event.style.display = 'block'));
+        scheduledEvents.forEach(event => (event.style.display = 'none'));
+      }
+    };
 
-  mainElement.innerHTML = `
+    mainElement.innerHTML = `
 
 <p>This is a simple football calendar of the AFC Champions League.</p>
 <div class="adminComponent">
@@ -139,14 +141,17 @@ export const renderHomePage = () => {
     <div class="events"></div>
 `;
 
-  const selectElement = document.getElementsByTagName('select')[0];
-  selectElement.addEventListener('change', filterEvents);
+    const selectElement = document.getElementsByTagName('select')[0];
+    selectElement.addEventListener('change', filterEvents);
 
-  loadEvents();
+    loadEvents();
 
-  document
-    .getElementsByClassName('resetEvents')[0]
-    .addEventListener('click', resetEvents);
+    document
+      .getElementsByClassName('resetEvents')[0]
+      .addEventListener('click', resetEvents);
+  } else {
+    setTimeout(renderHomePage, 50);
+  }
 };
 
 deleteConfirmationButton.addEventListener('click', () => deleteEvent());

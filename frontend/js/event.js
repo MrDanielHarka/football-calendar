@@ -1,10 +1,12 @@
-import { sportData, mainElement } from './index.js';
+import { mainElement } from './index.js';
+import { sportData } from './http.js';
 
 export const renderEventPage = eventId => {
-  const event = sportData[parseInt(eventId) - 1];
-  console.log(event);
+  if (sportData) {
+    const event = sportData[parseInt(eventId) - 1];
+    console.log(event);
 
-  mainElement.innerHTML = `
+    mainElement.innerHTML = `
   <div class="card card--big">
       <h1>
         ${
@@ -12,10 +14,10 @@ export const renderEventPage = eventId => {
             ? event.homeTeam.abbreviation
             : '???'
         } vs ${
-    event.awayTeam !== null && event.awayTeam.abbreviation !== null
-      ? event.awayTeam.abbreviation
-      : '???'
-  }
+      event.awayTeam !== null && event.awayTeam.abbreviation !== null
+        ? event.awayTeam.abbreviation
+        : '???'
+    }
         <br />
         match details
       </h1>
@@ -42,10 +44,10 @@ export const renderEventPage = eventId => {
 
       <p>
         The match is ${event.status} on ${
-    event.dateVenue
-  } at ${event.timeVenueUTC.slice(0, 5)} (UTC). The place is ${
-    event.stadium !== null ? event.stadium : 'not known'
-  }.
+      event.dateVenue
+    } at ${event.timeVenueUTC.slice(0, 5)} (UTC). The place is ${
+      event.stadium !== null ? event.stadium : 'not known'
+    }.
       </p>
     </div>
     <div class="flex-container">
@@ -180,22 +182,25 @@ export const renderEventPage = eventId => {
       <h2>Summary</h2>
       <p>
         The game is ${event.status} on ${
-    event.dateVenue
-  } at ${event.timeVenueUTC.slice(0, 5)} (UTC) between
+      event.dateVenue
+    } at ${event.timeVenueUTC.slice(0, 5)} (UTC) between
         ${
           event.homeTeam !== null && event.homeTeam.officialName !== null
             ? event.homeTeam.officialName
             : 'an undecided'
         } and ${
-    event.awayTeam !== null && event.awayTeam.officialName !== null
-      ? event.awayTeam.officialName
-      : 'an undecided team'
-  } in ${event.season}. The stage is
+      event.awayTeam !== null && event.awayTeam.officialName !== null
+        ? event.awayTeam.officialName
+        : 'an undecided team'
+    } in ${event.season}. The stage is
         ${event.stage.name.toLowerCase()} and the ordering is ${
-    event.stage.ordering
-  }. The place of the match is
-${event.stadium !== null ? event.stadium : 'not known'}.
+      event.stage.ordering
+    }. The place of the match is
+    ${event.stadium !== null ? event.stadium : 'not known'}.
       </p>
     </aside>
   `;
+  } else {
+    setTimeout(renderEventPage, 50);
+  }
 };

@@ -2,7 +2,11 @@ const http = require('http');
 const fs = require('fs');
 
 const server = http.createServer((request, response) => {
-  console.log(request.url);
+  console.log(
+    `${
+      request.url
+    } visited at ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`
+  );
 
   response.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5500');
   response.setHeader('Access-Control-Allow-Credentials', 'true');
@@ -16,6 +20,10 @@ const server = http.createServer((request, response) => {
       Location: 'https://football-calendar.harka.com',
     });
     response.end();
+  } else if (request.url === '/load') {
+    const sportData = fs.readFileSync('sportData.json', 'utf8');
+    response.writeHead(200);
+    response.end(sportData);
   } else {
     response.writeHead(404, { 'Content-Type': 'text/plain' });
     response.end(`404: ${request.url} page not found.`);

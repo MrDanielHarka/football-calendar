@@ -1,8 +1,7 @@
 Backend
 
+- /save update sportData (add/delete)
 - /login login
-- /download get sportData
-- /update update sportData (add/delete)
 - /reset reset
 - coding+billiard=love | Vienna<3
 
@@ -17,10 +16,11 @@ Structure
 - Are you sure you would like to reset the events?
 - reset events
 - Add 404 page
+- Save, reset, delete confirmation
 
 Documentation
 
-- The Task (PDF)
+- The task (PDF)
 - For users
 - For admins
 - For developers (Lighthouse, validator, responsivity)
