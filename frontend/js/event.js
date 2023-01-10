@@ -1,4 +1,4 @@
-import { sportData, mainElement } from '/js/index.js';
+import { sportData, mainElement } from './index.js';
 
 export const renderEventPage = eventId => {
   const event = sportData[parseInt(eventId) - 1];

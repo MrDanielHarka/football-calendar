@@ -1,5 +1,5 @@
-import { sportData, mainElement } from '/js/index.js';
-import { renderAddPage } from '/js/add.js';
+import { sportData, mainElement } from './index.js';
+import { renderAddPage } from './add.js';
 
 const confirmationText = document.querySelector('.confirmationText');
 
@@ -63,7 +63,7 @@ const loadEvents = () => {
         <div class="event ${event.status}">
         <a href="#${eventId}" class="card shadow">
         <br>
-        <img src="/assets/img.png" alt="Football Calendar" />
+        <img src="../assets/img.png" alt="Football Calendar" />
         <br>
           <span
             >${

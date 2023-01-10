@@ -1,4 +1,4 @@
-import { login, mainElement } from '/js/index.js';
+import { login, mainElement } from './index.js';
 
 const submitLogin = e => {
   e.preventDefault();

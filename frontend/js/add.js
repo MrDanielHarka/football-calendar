@@ -1,4 +1,4 @@
-import { sportData, mainElement } from '/js/index.js';
+import { sportData, mainElement } from './index.js';
 
 const addOptionalZero = number => {
   return ('0' + parseInt(number)).slice(-2);

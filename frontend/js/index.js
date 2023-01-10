@@ -1,8 +1,8 @@
-import sportDataJSON from '/assets/sportData.json' assert { type: 'json' };
-import { renderEventPage } from '/js/event.js';
-import { renderAddPage } from '/js/add.js';
-import { renderLoginPage } from '/js/login.js';
-import { renderHomePage } from '/js/home.js';
+import sportDataJSON from '../assets/sportData.json' assert { type: 'json' };
+import { renderEventPage } from './event.js';
+import { renderAddPage } from './add.js';
+import { renderLoginPage } from './login.js';
+import { renderHomePage } from './home.js';
 
 export let user = { isLoggedIn: false };
 export const sportData = sportDataJSON.data;
