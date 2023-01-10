@@ -1,4 +1,4 @@
-import { sportData, mainElement } from '/js/app.js';
+import { sportData, mainElement } from '/js/index.js';
 import { renderAddPage } from '/js/add.js';
 
 const confirmationText = document.querySelector('.confirmationText');
