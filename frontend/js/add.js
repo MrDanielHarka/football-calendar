@@ -1,5 +1,5 @@
 import { mainElement } from './index.js';
-import { sportData } from './http.js';
+import { sportData, saveData } from './http.js';
 
 const addOptionalZero = number => {
   return ('0' + parseInt(number)).slice(-2);
@@ -134,6 +134,7 @@ const addEvent = e => {
   e.preventDefault();
   pushEventToSportData();
   navigateToNewEvent();
+  saveData();
 };
 
 export const renderAddPage = () => {

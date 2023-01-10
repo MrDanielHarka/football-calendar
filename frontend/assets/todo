@@ -1,6 +1,5 @@
 Backend
 
-- /save update sportData (add/delete)
 - /login login
 - /reset reset
 - coding+billiard=love | Vienna<3
@@ -20,6 +19,7 @@ Structure
 
 Documentation
 
+- Description
 - The task (PDF)
 - For users
 - For admins
@@ -27,4 +27,4 @@ Documentation
 
 Errors
 
-- Firefox broke after commit 2d0af03 ! bundling all js fixes it...
+- New event team name

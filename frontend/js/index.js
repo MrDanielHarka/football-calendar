@@ -1,4 +1,3 @@
-// import sportDataJSON from '../assets/sportData.json' assert { type: 'json' };
 import { sportData } from './http.js';
 import { renderEventPage } from './event.js';
 import { renderAddPage } from './add.js';
@@ -6,7 +5,6 @@ import { renderLoginPage } from './login.js';
 import { renderHomePage } from './home.js';
 
 export let user = { isLoggedIn: false };
-// export const sportData = sportDataJSON.data;
 export const mainElement = document.getElementsByTagName('main')[0];
 
 export const saveUserStateToLocalStorage = () => {

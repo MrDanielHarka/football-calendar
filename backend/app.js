@@ -8,9 +8,9 @@ const server = http.createServer((request, response) => {
     } visited at ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`
   );
 
-  response.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5500');
+  response.setHeader('Access-Control-Allow-Origin', '*');
   response.setHeader('Access-Control-Allow-Credentials', 'true');
-  response.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT');
+  response.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, OPTIONS');
   response.setHeader(
     'Access-Control-Allow-Headers',
     'Origin, X-Requested-With, Content-Type, Accept'
@@ -20,10 +20,25 @@ const server = http.createServer((request, response) => {
       Location: 'https://football-calendar.harka.com',
     });
     response.end();
+  } else if (request.method === 'OPTIONS') {
+    response.writeHead(200);
+    response.end();
   } else if (request.url === '/load') {
-    const sportData = fs.readFileSync('sportData.json', 'utf8');
+    const sportData = fs.readFileSync('data.json', 'utf8');
     response.writeHead(200);
     response.end(sportData);
+  } else if (request.url === '/save') {
+    let body = '';
+    request.on('data', chunk => {
+      body += chunk.toString();
+    });
+    request.on('end', () => {
+      fs.writeFileSync('data.json', body);
+      // const jsonData = JSON.parse(body);
+      // console.log(jsonData);
+      response.writeHead(200, { 'Content-Type': 'application/json' });
+      response.end(JSON.stringify({ message: 'data received' }));
+    });
   } else {
     response.writeHead(404, { 'Content-Type': 'text/plain' });
     response.end(`404: ${request.url} page not found.`);
