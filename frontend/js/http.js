@@ -1,5 +1,5 @@
+import { login, mainElement } from './index.js';
 import { renderHomePage } from './home.js';
-import { login } from './index.js';
 
 const xhr = new XMLHttpRequest(),
   backendURL = 'https://gp0eij-3000.preview.csb.app';
@@ -7,18 +7,48 @@ const xhr = new XMLHttpRequest(),
 
 export let sportData = 0;
 
+const notifyUser = () => {
+  mainElement.innerHTML = `
+      <div class="card card--big">
+        <h1>Server error! :(</h1>
+        <p>The server can't be reached for some reason.</p>
+        <p>Please refresh or try visiting at a later time.</p>
+      </div>
+      `;
+  console.log('User notified.');
+};
+
+const notifyDaniel = () => {
+  // const  = new XMLHttpRequest();
+  // xhrDaniel.open(
+  //   'POST',
+  //   'https://docs.google.com/forms/u/1/d/e/1FAIpQLScZCRD7ynRbuG-tkQT5FcicxK8Bii6impvbQTFCb-wLW1YVSA/formResponse'
+  // );
+  // xhrDaniel.setRequestHeader(
+  //   'Content-type',
+  //   'application/x-www-form-urlencoded'
+  // );
+  // xhrDaniel.send(`entry.1799968402=Football Calendar server error!`);
+  console.log('Daniel notified.');
+};
+
+const serverErrorHandling = () => {
+  notifyUser();
+  notifyDaniel();
+};
+
 export const loadData = () => {
   xhr.open('GET', `${backendURL}/load`);
   xhr.onload = () => {
     console.log(JSON.parse(xhr.responseText).data);
     sportData = JSON.parse(xhr.responseText).data;
   };
+  xhr.onerror = () => serverErrorHandling();
   xhr.send();
 };
 
 export const saveData = () => {
   xhr.open('PUT', `${backendURL}/save`);
-  // xhr.withCredentials = true;
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.onload = () => {
     if (xhr.status === 200) {

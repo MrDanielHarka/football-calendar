@@ -76,7 +76,7 @@ const renderSiteAndNavigate = () => {
   renderHeader();
   // checkServerAvailability();
   let hash = window.location.hash.substring(1);
-  console.log(hash);
+  console.log('Hash:', hash);
   console.log(sportData.length);
   if (hash > 0 && hash <= sportData.length) {
     renderEventPage(hash);
