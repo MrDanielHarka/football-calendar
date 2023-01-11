@@ -143,21 +143,6 @@ footer span {
   padding: 1rem;
 }
 
-.card {
-  background-color: #fff;
-  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.1411764706), 0 1px 3px 0 rgba(0, 0, 0, 0.1215686275);
-  max-width: 290px;
-  border-radius: 4px;
-}
-.card--big {
-  max-width: 700px;
-  margin: auto;
-  padding: 0.5rem 1rem;
-}
-.card img {
-  max-width: 35%;
-}
-
 main {
   margin: auto;
   padding: 6rem 10px;
@@ -188,21 +173,11 @@ aside {
 .button--white {
   background-color: #fff;
   color: #000;
-  border: 2px solid #000;
-}
-.button--white:hover {
-  border: 2px solid #000;
-  background-color: #000;
-  color: #fff;
+  border: 2px solid #222;
 }
 .button--black {
   border: 2px solid #000;
   background-color: #000;
-  color: #fff;
-}
-.button--black:hover {
-  border: 2px solid #333;
-  background-color: #333;
   color: #fff;
 }
 .button--green {
@@ -210,9 +185,28 @@ aside {
   background-color: #080;
   color: #fff;
 }
-.button--green:hover {
-  border: 2px solid darkgreen;
-  background-color: darkgreen;
+
+.card {
+  background-color: #fff;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.1411764706), 0 1px 3px 0 rgba(0, 0, 0, 0.1215686275);
+  max-width: 290px;
+  border-radius: 4px;
+}
+.card--big {
+  max-width: 700px;
+  margin: auto;
+  padding: 0.5rem 1rem;
+}
+.card img {
+  max-width: 35%;
+}
+
+a.card:focus,
+a.card:hover,
+.button:focus,
+.button:hover {
+  transition: 0.1s ease-in-out;
+  transform: translateY(-1px);
 }
 
 .modal {

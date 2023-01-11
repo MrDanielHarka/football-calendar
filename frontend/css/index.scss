@@ -155,23 +155,6 @@ footer {
   padding: 1rem;
 }
 
-.card {
-  background-color: $white;
-  box-shadow: $shadow;
-  max-width: 290px;
-  border-radius: 4px;
-
-  &--big {
-    max-width: 700px;
-    margin: auto;
-    padding: 0.5rem 1rem;
-  }
-
-  & img {
-    max-width: 35%;
-  }
-}
-
 main {
   margin: auto;
   padding: 6rem 10px;
@@ -204,34 +187,45 @@ aside {
   &--white {
     background-color: $white;
     color: $black;
-    border: 2px solid $black;
-    &:hover {
-      border: 2px solid $black;
-      background-color: $black;
-      color: $white;
-    }
+    border: 2px solid #222;
   }
 
   &--black {
-    border: 2px solid $black;
-    background-color: $black;
+    border: 2px solid #000;
+    background-color: #000;
     color: $white;
-    &:hover {
-      border: 2px solid #333;
-      background-color: #333;
-      color: $white;
-    }
   }
 
   &--green {
     border: 2px solid $green;
     background-color: $green;
     color: $white;
-    &:hover {
-      border: 2px solid darkgreen;
-      background-color: darkgreen;
-    }
   }
+}
+
+.card {
+  background-color: $white;
+  box-shadow: $shadow;
+  max-width: 290px;
+  border-radius: 4px;
+
+  &--big {
+    max-width: 700px;
+    margin: auto;
+    padding: 0.5rem 1rem;
+  }
+
+  & img {
+    max-width: 35%;
+  }
+}
+
+a.card:focus,
+a.card:hover,
+.button:focus,
+.button:hover {
+  transition: 0.1s ease-in-out;
+  transform: translateY(-1px);
 }
 
 .modal {
