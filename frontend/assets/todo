@@ -1,7 +1,3 @@
-Backend
-
-- Put user info in users.js, checkCredentials()
-
 Style
 
 - colors in variables
@@ -10,7 +6,6 @@ Style
 
 Structure
 
-- setTimeout 10000 if !mainElement.textContent server error
 - Add 404 page
 
 Documentation

@@ -5,6 +5,8 @@ const xhr = new XMLHttpRequest(),
   backendURL = 'https://gp0eij-3000.preview.csb.app';
 // backendURL = 'http://localhost:3000';
 
+xhr.onerror = () => serverErrorHandling();
+
 export let sportData = 0;
 
 const notifyUser = () => {
@@ -19,7 +21,7 @@ const notifyUser = () => {
 };
 
 const notifyDaniel = () => {
-  // const  = new XMLHttpRequest();
+  // const xhrDaniel = new XMLHttpRequest();
   // xhrDaniel.open(
   //   'POST',
   //   'https://docs.google.com/forms/u/1/d/e/1FAIpQLScZCRD7ynRbuG-tkQT5FcicxK8Bii6impvbQTFCb-wLW1YVSA/formResponse'
@@ -43,7 +45,6 @@ export const loadData = () => {
     console.log(JSON.parse(xhr.responseText).data);
     sportData = JSON.parse(xhr.responseText).data;
   };
-  xhr.onerror = () => serverErrorHandling();
   xhr.send();
 };
 

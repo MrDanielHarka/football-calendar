@@ -1,5 +1,6 @@
-const http = require('http');
-const fs = require('fs');
+const fs = require('fs'),
+  http = require('http'),
+  users = require('./users');
 
 const server = http.createServer((request, response) => {
   console.log(
@@ -44,11 +45,7 @@ const server = http.createServer((request, response) => {
       const loginData = JSON.parse(body);
       console.log(loginData);
 
-      if (
-        (loginData.username === 'dani' && loginData.password === 'Vienna<3') ||
-        (loginData.username === 'michi' &&
-          loginData.password === 'coding+billiard=love')
-      ) {
+      if (users.checkCredentials(loginData.username, loginData.password)) {
         response.writeHead(200);
         console.log('Correct login details.');
       } else {
