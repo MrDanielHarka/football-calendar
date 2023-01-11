@@ -77,7 +77,7 @@ const loadEvents = () => {
     );
     events += `
         <div class="event ${event.status}">
-        <a href="#${eventId}" class="card shadow">
+        <a href="#${eventId}" class="card shadow" tabindex="0">
         <br>
         <img src="./assets/img.png" alt="Football Calendar" width="88" height="75" />
         <br>
@@ -123,9 +123,6 @@ const loadEvents = () => {
 export const renderHomePage = () => {
   if (sportData) {
     window.location.hash = '#';
-    const resetEvents = () => {
-      console.log('Event resetting logic + confirmation modal here.');
-    };
 
     const filterEvents = () => {
       const events = document.querySelectorAll('.event');

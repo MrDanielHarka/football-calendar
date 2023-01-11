@@ -54,7 +54,7 @@ const checkLocalStorage = () => {
 const renderHeader = () => {
   document.querySelector('header').innerHTML = `
     <div class="link-wrapper">
-        <a href="#" class="flex-container">
+        <a href="#" class="flex-container" tabindex="0">
           <img
             src="./assets/img.png"
             alt="Football Calendar"
@@ -64,17 +64,20 @@ const renderHeader = () => {
           Football Calendar
         </a>
         <nav>
-          <a href="#">Home</a>
-          <a href="#login" class="loginLink">Login</a>
-          <a href="#logout" class="adminComponent">Logout</a>
+          <a href="#" tabindex="0" class="home-button">Home</a>
+          <a href="#login" class="loginLink" tabindex="0">Login</a>
+          <a href="#logout" class="adminComponent" tabindex="0">Logout</a>
         </nav>
       </div>`;
 };
 
-const renderSiteAndNavigate = async () => {
+const renderSiteAndNavigate = () => {
   checkLocalStorage();
   renderHeader();
+  // checkServerAvailability();
   let hash = window.location.hash.substring(1);
+  console.log(hash);
+  console.log(sportData.length);
   if (hash > 0 && hash <= sportData.length) {
     renderEventPage(hash);
   } else if (hash === 'add' && user.isLoggedIn) {
@@ -91,5 +94,5 @@ const renderSiteAndNavigate = async () => {
   scrollTop();
 };
 
-sportData ? renderSiteAndNavigate() : setTimeout(renderSiteAndNavigate, 50);
+sportData ? renderSiteAndNavigate() : setTimeout(renderSiteAndNavigate, 300);
 window.addEventListener('hashchange', renderSiteAndNavigate);

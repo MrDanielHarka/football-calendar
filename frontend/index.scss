@@ -57,15 +57,11 @@ a {
   justify-content: space-evenly;
   flex-wrap: wrap;
   align-items: center;
-  // margin: auto;
   display: flex;
   &--small {
     justify-content: space-between;
     min-width: 290px;
   }
-  // &--big {
-  //   max-width: 750px;
-  // }
 }
 
 .info-wrapper {
@@ -251,6 +247,7 @@ header {
   right: 0;
   box-shadow: 0 2px 1px -1px #0003, 0 1px 1px 0 #00000024, 0 1px 3px 0 #0000001f;
   background-color: #080;
+  font-size: 15px;
 
   & a {
     color: #fff;
@@ -265,6 +262,10 @@ header {
     height: 25px;
     margin-right: 0.5rem;
   }
+
+  @media only screen and (min-width: 450px) {
+    font-size: 17px;
+  }
 }
 
 .link-wrapper {
@@ -273,15 +274,21 @@ header {
   max-width: 1400px;
   display: flex;
   justify-content: space-between;
-  align-items: space-between;
-  justify-items: space-between;
 }
 
 nav {
   display: flex;
   align-items: center;
   & a {
-    padding-left: 3rem;
+    margin-left: 3rem;
+  }
+}
+
+.home-button {
+  display: none;
+
+  @media only screen and (min-width: 450px) {
+    display: inline;
   }
 }
 

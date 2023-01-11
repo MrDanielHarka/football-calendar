@@ -1,28 +1,26 @@
 Backend
 
-- /login login
-- | Vienna<3
+- Put user info in users.js, checkCredentials()
 
 Style
 
-- responsive mobile menu
 - colors in variables
 - favicons
+- event pink when about to be deleted ?
 
 Structure
 
-- reset events
+- setTimeout 10000 if !mainElement.textContent server error
 - Add 404 page
-- Save, reset, delete confirmation
 
 Documentation
 
 - Description
-- The task (PDF)
 - For users
   -- Registration is invite only
 - For admins
 - For developers (Lighthouse, validator, responsivity)
+- The task (PDF)
 
 Errors
 

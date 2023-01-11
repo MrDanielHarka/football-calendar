@@ -21,6 +21,7 @@ export const renderEventPage = eventId => {
         <br />
         match details
       </h1>
+      <img src="./assets/img.png" alt="Football Calendar" width="88" height="75" />
       <p>
         This page is about the ${event.status} game between the following
         teams:
