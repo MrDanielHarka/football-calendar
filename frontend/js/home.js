@@ -79,7 +79,7 @@ const loadEvents = () => {
         <div class="event ${event.status}">
         <a href="#${eventId}" class="card shadow">
         <br>
-        <img src="../assets/img.png" alt="Football Calendar" width="88" height="75" />
+        <img src="./assets/img.png" alt="Football Calendar" width="88" height="75" />
         <br>
           <span
             >${

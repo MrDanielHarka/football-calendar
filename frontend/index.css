@@ -272,6 +272,7 @@ footer span {
   border: 0;
   border-bottom: 2px solid black;
   outline: 0;
+  font-size: 16px;
 }
 .login input:focus {
   border-bottom: 2px solid #080;

@@ -15,18 +15,14 @@ const server = http.createServer((request, response) => {
     'Access-Control-Allow-Headers',
     'Origin, X-Requested-With, Content-Type, Accept'
   );
-  if (request.url === '/') {
-    response.writeHead(301, {
-      Location: 'https://football-calendar.harka.com',
-    });
-    response.end();
-  } else if (request.method === 'OPTIONS') {
-    response.writeHead(200);
-    response.end();
-  } else if (request.url === '/load') {
+
+  if (request.url === '/load') {
     const data = fs.readFileSync('data.json', 'utf8');
     response.writeHead(200);
     response.end(data);
+  } else if (request.method === 'OPTIONS') {
+    response.writeHead(200);
+    response.end();
   } else if (request.url === '/save') {
     let body = '';
     request.on('data', chunk => {
@@ -39,15 +35,38 @@ const server = http.createServer((request, response) => {
       response.writeHead(200);
       response.end();
     });
+  } else if (request.url === '/login') {
+    let body = '';
+    request.on('data', chunk => {
+      body += chunk.toString();
+    });
+    request.on('end', () => {
+      const loginData = JSON.parse(body);
+      console.log(loginData);
+
+      if (
+        (loginData.username === 'dani' && loginData.password === 'Vienna<3') ||
+        (loginData.username === 'michi' &&
+          loginData.password === 'coding+billiard=love')
+      ) {
+        response.writeHead(200);
+        console.log('Correct login details.');
+      } else {
+        response.writeHead(401);
+        console.log('Wrong login details.');
+      }
+      response.end();
+    });
   } else if (request.url === '/reset') {
     response.writeHead(200);
     const sportData = fs.readFileSync('sportData.json', 'utf8');
     response.end(sportData);
     fs.writeFileSync('data.json', fs.readFileSync('sportData.json', 'utf8'));
   } else {
-    response.writeHead(404, { 'Content-Type': 'text/plain' });
-    response.end(`404: ${request.url} page not found.`);
-    console.log(request.url);
+    response.writeHead(301, {
+      Location: `https://football-calendar.harka.com${request.url}`,
+    });
+    response.end();
   }
 });
 

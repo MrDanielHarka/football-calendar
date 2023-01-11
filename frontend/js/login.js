@@ -1,8 +1,12 @@
-import { login, mainElement } from './index.js';
+import { mainElement } from './index.js';
+import { initiateLogin } from './http.js';
 
 const submitLogin = e => {
   e.preventDefault();
-  login();
+  initiateLogin({
+    username: document.querySelector('#username').value,
+    password: document.querySelector('#password').value,
+  });
 };
 
 export const renderLoginPage = () => {
@@ -11,11 +15,11 @@ export const renderLoginPage = () => {
       <h1>Login</h1>
       <label for="username">Username</label>
       <br />
-      <input type="username" id="username" required value="dani" />
+      <input type="text" id="username" minlength="3" required />
       <br /><br />
       <label for="password">Password</label>
       <br />
-      <input type="password" id="password" required value="Vienna<3" />
+      <input type="password" id="password" minlength="6" required />
       <br />
       <span class="login-message"></span>
       <br />

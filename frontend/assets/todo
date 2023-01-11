@@ -1,13 +1,13 @@
 Backend
 
 - /login login
-- coding+billiard=love | Vienna<3
+- | Vienna<3
 
 Style
 
 - responsive mobile menu
 - colors in variables
-- Add all images fix sizes
+- favicons
 
 Structure
 
@@ -20,6 +20,7 @@ Documentation
 - Description
 - The task (PDF)
 - For users
+  -- Registration is invite only
 - For admins
 - For developers (Lighthouse, validator, responsivity)
 

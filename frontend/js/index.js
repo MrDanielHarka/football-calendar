@@ -7,11 +7,11 @@ import { renderHomePage } from './home.js';
 export let user = { isLoggedIn: false };
 export const mainElement = document.getElementsByTagName('main')[0];
 
-export const saveUserStateToLocalStorage = () => {
+const saveUserStateToLocalStorage = () => {
   localStorage.setItem('user', JSON.stringify(user));
 };
 
-export const changeToLayout = privilige => {
+const changeToLayout = privilige => {
   if (privilige === 'admin') {
     document.querySelector('style').innerHTML = `
   .adminComponent {display: inline}
@@ -51,8 +51,29 @@ const checkLocalStorage = () => {
   if (user.isLoggedIn) changeToLayout('admin');
 };
 
-const checkHashThenNavigate = async () => {
+const renderHeader = () => {
+  document.querySelector('header').innerHTML = `
+    <div class="link-wrapper">
+        <a href="#" class="flex-container">
+          <img
+            src="./assets/img.png"
+            alt="Football Calendar"
+            width="29"
+            height="25"
+          />
+          Football Calendar
+        </a>
+        <nav>
+          <a href="#">Home</a>
+          <a href="#login" class="loginLink">Login</a>
+          <a href="#logout" class="adminComponent">Logout</a>
+        </nav>
+      </div>`;
+};
+
+const renderSiteAndNavigate = async () => {
   checkLocalStorage();
+  renderHeader();
   let hash = window.location.hash.substring(1);
   if (hash > 0 && hash <= sportData.length) {
     renderEventPage(hash);
@@ -70,5 +91,5 @@ const checkHashThenNavigate = async () => {
   scrollTop();
 };
 
-sportData ? checkHashThenNavigate() : setTimeout(checkHashThenNavigate, 50);
-window.addEventListener('hashchange', checkHashThenNavigate);
+sportData ? renderSiteAndNavigate() : setTimeout(renderSiteAndNavigate, 50);
+window.addEventListener('hashchange', renderSiteAndNavigate);
