@@ -63,21 +63,21 @@ const loadEvents = () => {
     showModal();
   };
 
-  let events = '',
-    eventId = 0;
+  let events = '';
 
   events += `<div class="flex-container">`;
-  for (const event of sportData) {
-    eventId++;
+  // for (const event of sportData) {
+  sportData.map((event, index) => {
+    // eventId++;
     console.log(
-      eventId,
+      index + 1,
       `${event.homeTeam != null ? event.homeTeam.abbreviation : '???'} vs ${
         event.awayTeam != null ? event.awayTeam.abbreviation : '???'
       }`
     );
     events += `
         <div class="event ${event.status}">
-        <a href="#${eventId}" class="card shadow" tabindex="0">
+        <a href="#${index + 1}" class="card shadow" tabindex="0">
         <br>
         <img src="./assets/img.png" alt="Football Calendar" width="88" height="75" />
         <br>
@@ -99,15 +99,17 @@ const loadEvents = () => {
           <span>Time: ${event.timeVenueUTC.slice(0, 5)} (UTC)</span>
           <br /><br />
         </a>
-        <button class="button button--black showDeleteConfirmation adminComponent" data-delete="${eventId}">Delete event</button>
+        <button class="button button--black showDeleteConfirmation adminComponent" data-delete="${
+          index + 1
+        }">Delete event</button>
       </div>
     `;
-
-    document
-      .querySelector('.showResetConfirmation')
-      .addEventListener('click', showResetConfirmation);
-  }
+  });
   events += ` </div>`;
+
+  document
+    .querySelector('.showResetConfirmation')
+    .addEventListener('click', showResetConfirmation);
 
   document.getElementsByClassName('events')[0].innerHTML = events;
 
