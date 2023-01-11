@@ -3,6 +3,7 @@ import { renderEventPage } from './event.js';
 import { renderAddPage } from './add.js';
 import { renderLoginPage } from './login.js';
 import { renderHomePage } from './home.js';
+import { renderHeaderAndFooter } from './elements.js';
 
 export let user = { isLoggedIn: false };
 export const mainElement = document.getElementsByTagName('main')[0];
@@ -51,30 +52,9 @@ const checkLocalStorage = () => {
   if (user.isLoggedIn) changeToLayout('admin');
 };
 
-const renderHeader = () => {
-  document.querySelector('header').innerHTML = `
-    <div class="link-wrapper">
-        <a href="#" class="flex-container" tabindex="0">
-          <img
-            src="./assets/img.png"
-            alt="Football Calendar"
-            width="29"
-            height="25"
-          />
-          Football Calendar
-        </a>
-        <nav>
-          <a href="#" tabindex="0" class="home-button">Home</a>
-          <a href="#login" class="loginLink" tabindex="0">Login</a>
-          <a href="#logout" class="adminComponent" tabindex="0">Logout</a>
-        </nav>
-      </div>`;
-};
-
 const renderSiteAndNavigate = () => {
   checkLocalStorage();
-  renderHeader();
-  // checkServerAvailability();
+  renderHeaderAndFooter();
   let hash = window.location.hash.substring(1);
   console.log('Hash:', hash);
   console.log(sportData.length);
