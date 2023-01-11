@@ -47,7 +47,7 @@ a {
 }
 
 .red-text {
-  color: #000;
+  color: #f00;
 }
 
 header {
@@ -281,7 +281,7 @@ aside {
 }
 .login-message {
   font-size: 14px;
-  color: #000;
+  color: #f00;
 }
 
 .team {
