@@ -2,8 +2,8 @@ import { login, mainElement } from './index.js';
 import { renderHomePage } from './home.js';
 
 const xhr = new XMLHttpRequest(),
-  // backendURL = 'https://gp0eij-3000.preview.csb.app';
-  backendURL = 'http://localhost:3000';
+  backendURL = 'https://gp0eij-3000.preview.csb.app';
+// backendURL = 'http://localhost:3000';
 
 xhr.onerror = () => serverErrorHandling();
 
