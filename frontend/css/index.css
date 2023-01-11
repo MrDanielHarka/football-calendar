@@ -35,168 +35,19 @@ body {
   font-size: 17px;
   text-align: center;
   background-color: #fafafa;
-  color: #222;
+  color: #000;
   font-family: "Roboto", sans-serif;
   font-display: swap;
 }
 
 a {
   text-decoration: none;
-  color: #222;
+  color: #000;
   font-weight: bold;
 }
 
 .red-text {
-  color: red;
-}
-
-.flex-container {
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  align-items: center;
-  display: flex;
-}
-.flex-container--small {
-  justify-content: space-between;
-  min-width: 290px;
-}
-
-.info-wrapper {
-  margin: 1.5rem;
-  padding: 1rem;
-}
-
-.card {
-  background-color: #fff;
-  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.1411764706), 0 1px 3px 0 rgba(0, 0, 0, 0.1215686275);
-  max-width: 290px;
-  border-radius: 4px;
-}
-.card--big {
-  max-width: 700px;
-  margin: auto;
-  padding: 0.5rem 1rem;
-}
-.card img {
-  max-width: 35%;
-}
-
-main {
-  margin: auto;
-  padding: 6rem 10px;
-  max-width: 1500px;
-}
-
-.event a {
-  margin: 2rem 1rem 0 1rem;
-  padding: 1rem;
-  min-width: 250px;
-  display: block;
-}
-
-aside {
-  margin: 2rem 0;
-  padding: 0.5rem;
-}
-
-.button {
-  margin: 0.5rem;
-  padding: 0.6rem 1rem;
-  min-width: 125px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.1411764706), 0 1px 3px 0 rgba(0, 0, 0, 0.1215686275);
-}
-.button--white {
-  background-color: #fff;
   color: #000;
-  border: 2px solid black;
-}
-.button--white:hover {
-  border: 2px solid #000;
-  background-color: #000;
-  color: #fff;
-}
-.button--black {
-  border: 2px solid #000;
-  background-color: #000;
-  color: #fff;
-}
-.button--black:hover {
-  border: 2px solid #000;
-  background-color: #fff;
-  color: #000;
-}
-.button--red {
-  background-color: red;
-  color: #fff;
-}
-.button--red:hover {
-  background-color: darkred;
-}
-.button--green {
-  background-color: green;
-  color: #fff;
-}
-.button--green:hover {
-  background-color: darkgreen;
-}
-
-.modal {
-  display: flex;
-  display: none;
-  align-items: center;
-  position: fixed;
-  padding: 1rem 2rem 2rem 2rem;
-  right: 0;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  background-color: #fff;
-}
-@media only screen and (min-width: 450px) {
-  .modal {
-    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.1411764706), 0 1px 3px 0 rgba(0, 0, 0, 0.1215686275);
-    border-radius: 4px;
-    height: 200px;
-    width: 350px;
-  }
-  .modal-background {
-    display: none;
-    position: fixed;
-    right: 0;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    background-color: #000;
-    opacity: 0.6;
-  }
-}
-
-.teamname {
-  font-size: 25px;
-  font-weight: bold;
-}
-
-.add input,
-.add textarea {
-  padding: 0.6rem;
-  border-radius: 4px;
-  border: none;
-  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.1411764706), 0 1px 3px 0 rgba(0, 0, 0, 0.1215686275);
-  background-color: #fff;
-  resize: none;
-  max-width: 95%;
-}
-
-.message-text {
-  white-space: pre-wrap;
-}
-
-.team {
-  min-width: 250px;
 }
 
 header {
@@ -276,6 +127,141 @@ footer span {
   }
 }
 
+.flex-container {
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+  display: flex;
+}
+.flex-container--small {
+  justify-content: space-between;
+  min-width: 290px;
+}
+
+.info-wrapper {
+  margin: 1.5rem;
+  padding: 1rem;
+}
+
+.card {
+  background-color: #fff;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.1411764706), 0 1px 3px 0 rgba(0, 0, 0, 0.1215686275);
+  max-width: 290px;
+  border-radius: 4px;
+}
+.card--big {
+  max-width: 700px;
+  margin: auto;
+  padding: 0.5rem 1rem;
+}
+.card img {
+  max-width: 35%;
+}
+
+main {
+  margin: auto;
+  padding: 6rem 10px;
+  max-width: 1500px;
+}
+
+.event a {
+  margin: 2rem 1rem 0 1rem;
+  padding: 1rem;
+  min-width: 250px;
+  display: block;
+}
+
+aside {
+  margin: 2rem 0;
+  padding: 0.5rem;
+}
+
+.button {
+  margin: 0.75rem;
+  padding: 0.6rem 1rem;
+  min-width: 125px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.1411764706), 0 1px 3px 0 rgba(0, 0, 0, 0.1215686275);
+}
+.button--white {
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #000;
+}
+.button--white:hover {
+  border: 2px solid #000;
+  background-color: #000;
+  color: #fff;
+}
+.button--black {
+  border: 2px solid #000;
+  background-color: #000;
+  color: #fff;
+}
+.button--black:hover {
+  border: 2px solid #333;
+  background-color: #333;
+  color: #fff;
+}
+.button--green {
+  border: 2px solid #080;
+  background-color: #080;
+  color: #fff;
+}
+.button--green:hover {
+  border: 2px solid darkgreen;
+  background-color: darkgreen;
+}
+
+.modal {
+  display: flex;
+  display: none;
+  align-items: center;
+  position: fixed;
+  padding: 1rem 2rem 2rem 2rem;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: #fff;
+}
+@media only screen and (min-width: 450px) {
+  .modal {
+    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.1411764706), 0 1px 3px 0 rgba(0, 0, 0, 0.1215686275);
+    border-radius: 4px;
+    height: 200px;
+    width: 350px;
+  }
+  .modal-background {
+    display: none;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #000;
+    opacity: 0.6;
+  }
+}
+
+.add input,
+.add textarea {
+  padding: 0.6rem;
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.1411764706), 0 1px 3px 0 rgba(0, 0, 0, 0.1215686275);
+  background-color: #fff;
+  resize: none;
+  max-width: 95%;
+}
+
+.message-text {
+  white-space: pre-wrap;
+}
+
 .login {
   margin: 3rem auto;
   padding: 0.1rem 0 1.5rem 0;
@@ -283,7 +269,7 @@ footer span {
 }
 .login input {
   border: 0;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #000;
   outline: 0;
   font-size: 16px;
 }
@@ -295,5 +281,14 @@ footer span {
 }
 .login-message {
   font-size: 14px;
-  color: red;
+  color: #000;
+}
+
+.team {
+  min-width: 250px;
+}
+
+.teamname {
+  font-size: 25px;
+  font-weight: bold;
 }/*# sourceMappingURL=index.css.map */

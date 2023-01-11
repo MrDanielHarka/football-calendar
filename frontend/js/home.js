@@ -99,7 +99,7 @@ const loadEvents = () => {
           <span>Time: ${event.timeVenueUTC.slice(0, 5)} (UTC)</span>
           <br /><br />
         </a>
-        <button class="button button--red showDeleteConfirmation adminComponent" data-delete="${eventId}">Delete event</button>
+        <button class="button button--black showDeleteConfirmation adminComponent" data-delete="${eventId}">Delete event</button>
       </div>
     `;
 
@@ -145,7 +145,7 @@ export const renderHomePage = () => {
 <p>This is a simple football calendar of the AFC Champions League.</p>
 <div class="adminComponent">
   <button class="button button--green addNewEvent">Add new event</button>
-    <button class="button button--red showResetConfirmation">Reset events</button>
+    <button class="button button--black showResetConfirmation">Reset events</button>
 </div>
   <br>
     <label for="events">Event status:</label>
