@@ -13,16 +13,13 @@ const resetConfirmationButton = document.querySelector(
 );
 
 const hideModal = () => {
-  console.log('Modal closed.');
   document.querySelector('.modal').style.display = 'none';
   document.querySelector('.modal-background').style.display = 'none';
 };
 
 const deleteEvent = () => {
   const eventId = deleteConfirmationButton.getAttribute('data-delete');
-  console.log(`Event #${eventId} is deleted.`);
   sportData.splice(eventId - 1, 1);
-  console.log(sportData);
   hideModal();
   loadEvents();
   saveData();
@@ -46,7 +43,6 @@ const loadEvents = () => {
       'Are you sure you would like to reset the events?';
     deleteConfirmationButton.style.display = 'none';
     resetConfirmationButton.style.display = 'inline-block';
-    console.log('Event resetting logic + confirmation modal here.');
     showModal();
   };
 
@@ -59,21 +55,11 @@ const loadEvents = () => {
       'data-delete',
       e.target.getAttribute('data-delete')
     );
-    console.log('Event deleting logic + confirmation modal here.');
     showModal();
   };
 
-  // let events = `<div class="flex-container">`;
-  // for (const event of sportData) {
   let events = sportData
     .map((event, index) => {
-      // eventId++;
-      console.log(
-        index + 1,
-        `${event.homeTeam != null ? event.homeTeam.abbreviation : '???'} vs ${
-          event.awayTeam != null ? event.awayTeam.abbreviation : '???'
-        }`
-      );
       return `
         <div class="event ${event.status}">
         <a href="#${index + 1}" class="card shadow" tabindex="0">

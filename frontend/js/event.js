@@ -4,7 +4,6 @@ import { sportData } from './http.js';
 export const renderEventPage = eventId => {
   if (sportData) {
     const event = sportData[parseInt(eventId) - 1];
-    console.log(event);
 
     mainElement.innerHTML = `
   <div class="card card--big">

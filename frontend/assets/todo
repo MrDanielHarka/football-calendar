@@ -1,4 +1,2 @@
-- home footer margin on mobile
-- main padding 6rem 10px 8rem 10px
-
-
+- Remove all the comments and console.logs
+- Prettify HTML inside JavaScript & remove preset values

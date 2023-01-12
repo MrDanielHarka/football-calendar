@@ -3,12 +3,6 @@ const fs = require('fs'),
   users = require('./users');
 
 const server = http.createServer((request, response) => {
-  console.log(
-    `${
-      request.url
-    } visited at ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`
-  );
-
   response.setHeader(
     'Access-Control-Allow-Origin',
     'https://football-calendar.harka.com'
@@ -34,8 +28,6 @@ const server = http.createServer((request, response) => {
     });
     request.on('end', () => {
       fs.writeFileSync('data.json', body);
-      // const jsonData = JSON.parse(body);
-      // console.log(jsonData);
       response.writeHead(200);
       response.end();
     });
@@ -46,14 +38,11 @@ const server = http.createServer((request, response) => {
     });
     request.on('end', () => {
       const loginData = JSON.parse(body);
-      console.log(loginData);
 
       if (users.checkCredentials(loginData.username, loginData.password)) {
         response.writeHead(200);
-        console.log('Correct login details.');
       } else {
         response.writeHead(401);
-        console.log('Wrong login details.');
       }
       response.end();
     });
@@ -71,5 +60,5 @@ const server = http.createServer((request, response) => {
 });
 
 server.listen(3000, err => {
-  if (err) return console.log(err);
+  if (err) return console.err(err);
 });
