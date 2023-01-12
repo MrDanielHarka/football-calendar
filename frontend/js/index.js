@@ -15,7 +15,7 @@ const saveUserStateToLocalStorage = () => {
 const changeToLayout = privilige => {
   if (privilige === 'admin') {
     document.querySelector('style').innerHTML = `
-  .adminComponent {display: inline}
+  .adminComponent {display: inline-block}
   .loginLink {display: none}
   `;
   } else {

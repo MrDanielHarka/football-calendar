@@ -1,6 +1,7 @@
-Style
-
-- event pink when about to be deleted ?
+- Replace getElementsBy... with querySelector for consistency
+- home footer margin on mobile
+- loading icon settimeout 0.5s
+- users -> visitors
 
 Documentation
 

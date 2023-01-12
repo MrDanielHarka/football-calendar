@@ -63,19 +63,18 @@ const loadEvents = () => {
     showModal();
   };
 
-  let events = '';
-
-  events += `<div class="flex-container">`;
+  // let events = `<div class="flex-container">`;
   // for (const event of sportData) {
-  sportData.map((event, index) => {
-    // eventId++;
-    console.log(
-      index + 1,
-      `${event.homeTeam != null ? event.homeTeam.abbreviation : '???'} vs ${
-        event.awayTeam != null ? event.awayTeam.abbreviation : '???'
-      }`
-    );
-    events += `
+  let events = sportData
+    .map((event, index) => {
+      // eventId++;
+      console.log(
+        index + 1,
+        `${event.homeTeam != null ? event.homeTeam.abbreviation : '???'} vs ${
+          event.awayTeam != null ? event.awayTeam.abbreviation : '???'
+        }`
+      );
+      return `
         <div class="event ${event.status}">
         <a href="#${index + 1}" class="card shadow" tabindex="0">
         <br>
@@ -104,14 +103,14 @@ const loadEvents = () => {
         }">Delete event</button>
       </div>
     `;
-  });
-  events += ` </div>`;
+    })
+    .join('');
 
   document
     .querySelector('.showResetConfirmation')
     .addEventListener('click', showResetConfirmation);
 
-  document.getElementsByClassName('events')[0].innerHTML = events;
+  document.getElementsByClassName('event-wrapper')[0].innerHTML = events;
 
   document.querySelectorAll('.showDeleteConfirmation').forEach(element => {
     element.addEventListener('click', showDeleteConfirmation);
@@ -156,7 +155,7 @@ export const renderHomePage = () => {
       <option value="scheduled">Scheduled</option>
       <option value="played">Played</option>
     </select>
-    <div class="events"></div>
+    <div class="event-wrapper flex-container"></div>
 `;
 
     const selectElement = document.getElementsByTagName('select')[0];
