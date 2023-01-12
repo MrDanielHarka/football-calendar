@@ -26,7 +26,7 @@ const pushEventToSportData = () => {
     homeTeam: {
       name:
         document.querySelector('#homeName').value !== ''
-          ? document.querySelector('#homeName').value === ''
+          ? document.querySelector('#homeName').value
           : null,
       officialName:
         document.querySelector('#homeOfficialName').value !== ''
@@ -52,7 +52,7 @@ const pushEventToSportData = () => {
     awayTeam: {
       name:
         document.querySelector('#awayName').value !== ''
-          ? document.querySelector('#awayName').value === ''
+          ? document.querySelector('#awayName').value
           : null,
       officialName:
         document.querySelector('#awayOfficialName').value !== ''
