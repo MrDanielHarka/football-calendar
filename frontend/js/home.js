@@ -14,8 +14,8 @@ const resetConfirmationButton = document.querySelector(
 
 const hideModal = () => {
   console.log('Modal closed.');
-  document.getElementsByClassName('modal')[0].style.display = 'none';
-  document.getElementsByClassName('modal-background')[0].style.display = 'none';
+  document.querySelector('.modal').style.display = 'none';
+  document.querySelector('.modal-background').style.display = 'none';
 };
 
 const deleteEvent = () => {
@@ -34,7 +34,7 @@ const resetEvents = () => {
 };
 
 const loadEvents = () => {
-  const selectElement = document.getElementsByTagName('select')[0];
+  const selectElement = document.querySelector('select');
   selectElement.value = 'all';
   const showModal = () => {
     document.querySelector('.modal-background').style.display = 'block';
@@ -110,7 +110,7 @@ const loadEvents = () => {
     .querySelector('.showResetConfirmation')
     .addEventListener('click', showResetConfirmation);
 
-  document.getElementsByClassName('event-wrapper')[0].innerHTML = events;
+  document.querySelector('.event-wrapper').innerHTML = events;
 
   document.querySelectorAll('.showDeleteConfirmation').forEach(element => {
     element.addEventListener('click', showDeleteConfirmation);
@@ -158,7 +158,7 @@ export const renderHomePage = () => {
     <div class="event-wrapper flex-container"></div>
 `;
 
-    const selectElement = document.getElementsByTagName('select')[0];
+    const selectElement = document.querySelector('select');
     selectElement.addEventListener('change', filterEvents);
 
     loadEvents();

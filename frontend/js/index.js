@@ -6,7 +6,7 @@ import { renderHomePage } from './home.js';
 import { renderHeaderAndFooter } from './elements.js';
 
 export let user = { isLoggedIn: false };
-export const mainElement = document.getElementsByTagName('main')[0];
+export const mainElement = document.querySelector('main');
 
 const saveUserStateToLocalStorage = () => {
   localStorage.setItem('user', JSON.stringify(user));
