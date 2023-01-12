@@ -12,6 +12,28 @@
   src: local(""), url("/fonts/roboto-v30-latin-700.woff2") format("woff2"), url("/fonts/roboto-v30-latin-700.woff") format("woff");
   font-display: swap;
 }
+@-webkit-keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.rotating {
+  -webkit-animation: rotating 1s linear infinite;
+  animation: rotating 1s linear infinite;
+  margin-top: 20vh;
+}
+
 * {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
