@@ -25,7 +25,6 @@ export const renderEventPage = eventId => {
         This page is about the ${event.status} game between the following
         teams:
       </p>
-
       <p>
         <span class="teamname">${
           event.homeTeam !== null && event.homeTeam.name !== null
@@ -41,7 +40,6 @@ export const renderEventPage = eventId => {
           : 'Undecided'
       }</span>
       </p>
-
       <p>
         The match is ${event.status} on ${
       event.dateVenue

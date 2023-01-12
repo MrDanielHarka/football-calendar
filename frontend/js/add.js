@@ -140,147 +140,130 @@ const addEvent = e => {
 export const renderAddPage = () => {
   window.location.hash = '#add';
   mainElement.innerHTML = `
-   <h1>Add event</h1>
-      <p>Fields marked with <span class="red-text">*</span> are mandatory.</p>
+  <h1>Add event</h1>
+  <p>Fields marked with <span class="red-text">*</span> are mandatory.</p>
+  <form class="add">
+    <h2>General details</h2>
+    <label for="season">Season <span class="red-text">*</span></label>
+    <br />
+    <input
+      type="number"
+      id="season"
+      min="2020"
+      max="2050"
+      required
+    />
+    <br /><br />
+    <label for="status">Status <span class="red-text">*</span></label>
+    <br />
+    <select id="status" class="button">
+      <option value="played">Played</option>
+      <option value="scheduled">Scheduled</option>
+    </select>
+    <br /><br />
+    <span>Date <span class="red-text">*</span></span>
+    <br />
+    <input type="number" id="year" min="2020" max="2050" required />
+    -
+    <input type="number" id="month" min="1" max="12" required />
+    -
+    <input type="number" id="day" min="1" max="31" required />
+    <br /><br />
+    <span>Time (UTC) <span class="red-text">*</span></span>
+    <br />
+    <input type="number" id="hour" min="0" max="23" required />
+    :
+    <input type="number" id="minute" min="0" max="59" required />
+    <br /><br />
+    <label for="stageId">Stage ID <span class="red-text">*</span></label>
+    <br />
+    <input type="text" id="stageId" required />
+    <br /><br />
+    <label for="stageName">Stage name <span class="red-text">*</span></label>
+    <br />
+    <input type="text" id="stageName" required />
+    <br /><br />
+    <label for="ordering">Ordering <span class="red-text">*</span></label>
+    <br />
+    <input type="number" id="ordering" min="1" required />
+    <br /><br />
+    <label for="stadium">Stadium</label>
+    <br />
+    <input type="text" id="stadium" />
+    <br /><br />
+    <div class="flex-container">
+      <div class="team">
+        <h2>Home team info</h2>
 
-      <form class="add">
-        <h2>General details</h2>
-
-        <label for="season">Season <span class="red-text">*</span></label>
+        <label for="homeName">Name</label>
         <br />
-        <input
-          type="number"
-          id="season"
-          min="2020"
-          max="2050"
-          required
-          value="2020"
-        />
+        <input type="text" id="homeName" />
         <br /><br />
-        <label for="status">Status <span class="red-text">*</span></label>
+        <label for="homeOfficialName">Official name</label>
         <br />
-        <select id="status" class="button">
-          <option value="played">Played</option>
-          <option value="scheduled">Scheduled</option>
-        </select>
+        <input type="text" id="homeOfficialName" />
         <br /><br />
-        <span>Date <span class="red-text">*</span></span>
+        <label for="homeSlug">Slug</label>
         <br />
-        <input
-          type="number"
-          id="year"
-          min="2020"
-          max="2050"
-          required
-          value="2020"
-        />
-        -
-        <input type="number" id="month" min="1" max="12" required value="10" />
-        -
-        <input type="number" id="day" min="1" max="31" required value="10" />
+        <input type="text" id="homeSlug" />
         <br /><br />
-        <span>Time (UTC) <span class="red-text">*</span></span>
+        <label for="homeAbbreviation">Abbreviation</label>
         <br />
-        <input type="number" id="hour" min="0" max="23" required value="10" />
-        :
-        <input type="number" id="minute" min="0" max="59" required value="10" />
+        <input type="text" id="homeAbbreviation" maxlength="3" />
         <br /><br />
-        <label for="stageId">Stage ID <span class="red-text">*</span></label>
+        <label for="homeTeamCountryCode">Team country code</label>
         <br />
-        <input type="text" id="stageId" required value="10" />
+        <input type="text" id="homeTeamCountryCode" maxlength="3" />
         <br /><br />
-        <label for="stageName"
-          >Stage name <span class="red-text">*</span></label
-        >
+        <label for="homeStagePosition">Stage position</label>
         <br />
-        <input type="text" id="stageName" required value="10" />
-        <br /><br />
-        <label for="ordering">Ordering <span class="red-text">*</span></label>
+        <input type="text" id="homeStagePosition" />
+      </div>
+      <div class="team">
+        <h2>Away team info</h2>
+        <label for="awayName">Name</label>
         <br />
-        <input type="number" id="ordering" min="1" required value="10" />
+        <input type="text" id="awayName" />
         <br /><br />
-        <label for="stadium">Stadium</label>
+        <label for="awayOfficialName">Official name</label>
         <br />
-        <input type="text" id="stadium" />
+        <input type="text" id="awayOfficialName" />
         <br /><br />
-
-        <div class="flex-container">
-          <div class="team">
-            <h2>Home team info</h2>
-
-            <label for="homeName">Name</label>
-            <br />
-            <input type="text" id="homeName" />
-            <br /><br />
-            <label for="homeOfficialName">Official name</label>
-            <br />
-            <input type="text" id="homeOfficialName" />
-            <br /><br />
-            <label for="homeSlug">Slug</label>
-            <br />
-            <input type="text" id="homeSlug" />
-            <br /><br />
-            <label for="homeAbbreviation">Abbreviation</label>
-            <br />
-            <input type="text" id="homeAbbreviation"  maxlength="3"/>
-            <br /><br />
-            <label for="homeTeamCountryCode">Team country code</label>
-            <br />
-            <input type="text" id="homeTeamCountryCode" maxlength="3"/>
-            <br /><br />
-            <label for="homeStagePosition">Stage position</label>
-            <br />
-            <input type="text" id="homeStagePosition" />
-          </div>
-
-          <div class="team">
-            <h2>Away team info</h2>
-
-            <label for="awayName">Name</label>
-            <br />
-            <input type="text" id="awayName" />
-            <br /><br />
-            <label for="awayOfficialName">Official name</label>
-            <br />
-            <input type="text" id="awayOfficialName" />
-            <br /><br />
-            <label for="awaySlug">Slug</label>
-            <br />
-            <input type="text" id="awaySlug" />
-            <br /><br />
-            <label for="awayAbbreviation">Abbreviation</label>
-            <br />
-            <input type="text" id="awayAbbreviation" maxlength="3" />
-            <br /><br />
-            <label for="awayTeamCountryCode">Team country code</label>
-            <br />
-            <input type="text" id="awayTeamCountryCode" maxlength="3" />
-            <br /><br />
-            <label for="awayStagePosition">Stage position</label>
-            <br />
-            <input type="text" id="awayStagePosition" />
-          </div>
-        </div>
-        <h2>Result</h2>
-        <label for="homeGoals">Home goals</label>
+        <label for="awaySlug">Slug</label>
         <br />
-        <input type="number" id="homeGoals" min="0" />
+        <input type="text" id="awaySlug" />
         <br /><br />
-        <label for="awayGoals">Away goals</label>
+        <label for="awayAbbreviation">Abbreviation</label>
         <br />
-        <input type="number" id="awayGoals" min="0" />
+        <input type="text" id="awayAbbreviation" maxlength="3" />
         <br /><br />
-        <label for="winner">Winner</label>
+        <label for="awayTeamCountryCode">Team country code</label>
         <br />
-        <input type="text" id="winner" />
+        <input type="text" id="awayTeamCountryCode" maxlength="3" />
         <br /><br />
-        <label for="message">Message</label>
+        <label for="awayStagePosition">Stage position</label>
         <br />
-        <textarea id="message" rows="4" cols="50"></textarea>
-        <br /><br />
-
-        <button class="button button--green">Add event</button>
-      </form>
-  `;
+        <input type="text" id="awayStagePosition" />
+      </div>
+    </div>
+    <h2>Result</h2>
+    <label for="homeGoals">Home goals</label>
+    <br />
+    <input type="number" id="homeGoals" min="0" />
+    <br /><br />
+    <label for="awayGoals">Away goals</label>
+    <br />
+    <input type="number" id="awayGoals" min="0" />
+    <br /><br />
+    <label for="winner">Winner</label>
+    <br />
+    <input type="text" id="winner" />
+    <br /><br />
+    <label for="message">Message</label>
+    <br />
+    <textarea id="message" rows="4" cols="50"></textarea>
+    <br /><br />
+    <button class="button button--green">Add event</button>
+  </form>`;
   document.querySelector('.add').addEventListener('submit', e => addEvent(e));
 };
