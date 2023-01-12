@@ -9,7 +9,10 @@ const server = http.createServer((request, response) => {
     } visited at ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`
   );
 
-  response.setHeader('Access-Control-Allow-Origin', '*');
+  response.setHeader(
+    'Access-Control-Allow-Origin',
+    'https://football-calendar.harka.com'
+  );
   response.setHeader('Access-Control-Allow-Credentials', 'true');
   response.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, OPTIONS');
   response.setHeader(
