@@ -72,6 +72,10 @@ a {
   color: #f00;
 }
 
+.green-text {
+  color: #080;
+}
+
 header {
   position: fixed;
   width: 100vw;
