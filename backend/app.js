@@ -16,6 +16,7 @@ const server = http.createServer((request, response) => {
 
   if (request.url === '/load') {
     const data = fs.readFileSync('data.json', 'utf8');
+    response.setHeader('Content-Type', 'application/json');
     response.writeHead(200);
     response.end(data);
   } else if (request.method === 'OPTIONS') {
@@ -48,6 +49,7 @@ const server = http.createServer((request, response) => {
     });
   } else if (request.url === '/reset') {
     response.writeHead(200);
+    response.setHeader('Content-Type', 'application/json');
     const sportData = fs.readFileSync('sportData.json', 'utf8');
     response.end(sportData);
     fs.writeFileSync('data.json', fs.readFileSync('sportData.json', 'utf8'));
