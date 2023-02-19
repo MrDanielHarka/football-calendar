@@ -19,7 +19,7 @@ export const renderLoginPage = () => {
       <br /><br />
       <label for="password">Password</label>
       <br />
-      <input type="password" id="password" minlength="6" required />
+      <input type="password" id="password" minlength="5" required />
       <br />
       <span class="login-message"></span>
       <br />
